@@ -1,0 +1,70 @@
+body {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, p {
+	color: #CCCCCC;
+}
+
+p { 
+	font-size: 14pt; 
+	text-align: justify;
+}
+
+.text-lightgrey{color: lightgrey}
+.CharaBox {margin-top: 30px;}
+.row{ margin-bottom: 20px;}
+.downloadBox{ 
+	background-color: #838282; 
+	border-radius: 15px;
+	border-style: ridge;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+h1 {
+	color: black;
+	float: right;
+}
+
+.btn {
+	border-radius: 10px;
+}
+
+.downloadBox h4 { color: #151515; }
+.member_card_L img{
+	float: left;
+	margin-right: 20px;
+}
+
+.member_card_L h1,h2,h3{ color: grey; }
+.member_card_R img{ float: right; }
+.member_card_R h1,h2,h3{ color: grey; }
+.icono{ color: green;}
+
+.contactBox{
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 20px;
+	padding-bottom: 5px;
+	margin-bottom: 20px;
+	background-color: lightgrey;
+	border-radius: 5px;
+}
+
+thead{
+	background-color: grey;
+	border-radius: 5px;
+}
+
+table{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 20px;
+	background-color: lightgrey;
+	border-radius: 5px;
+}
