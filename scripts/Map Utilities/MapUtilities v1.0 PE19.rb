@@ -1,10 +1,8 @@
 #==============================================================================#
-#                           MAP UTILITIES SCRIPT v1.2                          #
+#                           MAP UTILITIES SCRIPT v1.0                          #
 #                              (by A. Somersault)                              #
 #==============================================================================#
 #  This is an auxiliar one for my scripts that are somehow related with maps.  #
-#==============================================================================#
-# Current issue: out of support for mor than one region                        #
 #==============================================================================#
 MC_STEPS_TRACKED = 4        #Size of the n last visited positions to be recorded
 #==============================================================================#
@@ -34,14 +32,6 @@ class PokemonGlobalMetadata
   def desc_array
     @desc_array = nil if !@desc_array
     return @desc_array
-  end
-end
-
-class PokemonLoadScreen
-  alias old_PbStartLoadScreen pbStartLoadScreen
-  def pbStartLoadScreen
-    old_PbStartLoadScreen
-    pbLoadSinnohMapData
   end
 end
 
@@ -131,7 +121,10 @@ def pbObtainRealPos(cmp,tileSize=1,spritePos=[0,0],relPos=[0,0],scale=1,offset=[
   return [newX,newY]
 end
 
-Events.onStepTaken += proc do; pbUpdLocData if pbCheckChangingPortions; end
+Events.onStepTaken += proc do
+  pbLoadSinnohMapData
+  pbUpdLocData if pbCheckChangingPortions
+end
 
 def pbUpdLocData
   pbUpdateCurPos
@@ -160,7 +153,7 @@ end
 
 def pbLoadSinnohMapData
   if !$mapDataLoaded
-    #curRegionID=GameData::MapMetadata.get($game_map.map_id).town_map_position[0]
+    curRegionID=GameData::MapMetadata.get($game_map.map_id).town_map_position[0]
     #curRegionID= !$game_map ? 0 : pbGetMetadata($game_map.map_id,MetadataMapPosition)[0]
     regionSelected = false
     
@@ -170,12 +163,11 @@ def pbLoadSinnohMapData
       File.open(PBS_SINNOH_PATH) do |file|
         regionId = -1
         line = ""
-=begin
         while regionId !=curRegionID && !file.eof?
           line = file.readline()
           regionId = line[1,line.length-3].to_i if line.include? "["
         end
-=end
+        
         puts(_INTL("COMPILING SINNOH MAP LOCATIONS...")) if $DEBUG
         line = file.readline()
         while !(line.include? "[") && !file.eof?
