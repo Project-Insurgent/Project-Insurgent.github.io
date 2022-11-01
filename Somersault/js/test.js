@@ -9,7 +9,7 @@ window.onload = function(){
 };
 
 var frames   = 50;
-var vanishCurrentTab = function(section){
+function vanishCurrentTab(section){
 	var vanishable = document.getElementsByClassName("vanishable");
 	var i = 0;
 	var opacity = 1.0;
