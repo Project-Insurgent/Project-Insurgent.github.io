@@ -14,7 +14,7 @@ var vanishCurrentTab = function(){
 	var opacity = 1.0;
 	var myInterval = setInterval(function(){
 		if (i == frames){ 
-			for(var k = 0; k < vanishable.length; k++){ vanishable[k].style.display = "none"; }
+			for(var k = 0; k < vanishable.length; k++){ vanishable[k].remove(); }//style.display = "none"; }
 			readJsonMethod("scripts")
 			clearInterval(myInterval);
 		}
