@@ -1,0 +1,71 @@
+body {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.headerContainer, .mainContainer {
+	background-color: rgba(0,0,0,0.5);
+	border-radius: 10px;
+}
+
+.resourcePanel {
+	position: relative;
+	background-color: rgba(208,175,83,1.00);
+	border-radius: 10px;
+	padding-top: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	
+	
+	width: 100%;
+	height: 150px;
+	color: rgba(81,56,14,1.00);
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-weight: bold;
+	font-size:180%;
+}
+
+.resourceIcon {
+	padding-top: 20%;
+}
+
+.descField {
+	color: rgba(81,56,14,1.00);
+	font-size: 65%;
+}
+
+.mainButton {
+	width: 100%;
+	height: 60px;
+	background-color: rgba(208,175,83,1.00);
+	border-radius: 10px;
+	border-style:none;
+	color: rgba(81,56,14,1.00);
+	font-size:200%;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	font-weight: bold;
+ 	align-items : center;
+ 	justify-content : center;
+	position:relative;
+	margin-top: 15px;
+	transition: all 0.1s linear;
+}
+
+.vanishable {
+	transition: all 0.1s linear;
+	position: relative;
+}
+
+.row{ margin-bottom: 20px;}
+
+.btn {
+	border-radius: 10px;
+	position: absolute;
+}
+
+.mainBtnIcon {
+	display: none;
+	transition: all 0.1s linear;
+}
+

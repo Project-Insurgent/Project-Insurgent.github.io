@@ -1,0 +1,15 @@
+[
+	{
+		"ID": "SUSc",
+		"name": "Somersault Utilities Script",
+		"desc": "A basic script with stuff in it.",
+		"icon": "default"
+	},
+
+	{
+		"ID": "DPPT_Map",
+		"name": "Sinnoh Map Script",
+		"desc": "A basic script with more stuff in it.",
+		"icon": "LucasDawn.gif"
+	}
+]
