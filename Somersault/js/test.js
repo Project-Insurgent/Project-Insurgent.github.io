@@ -27,7 +27,7 @@ var vanishCurrentTab = function(){
 };
 
 var readJsonMethod = function(section){
-	fetch("../metadata/"+section+".json")
+	fetch("metadata/"+section+".json")
 		.then(results => results.json())
 		.then(function(data){
 			for (var i = 0; i < data.length; i++){
@@ -76,7 +76,7 @@ function createItemBox(section,data,rowId){
 	icon.className += "resourceIcon";
 	icon.setAttribute("width","100%");
 	var iconName = data["icon"] == "default" ? data["icon"]+".png" : data["ID"]+"/"+data["icon"]
-	icon.src = "../img/"+section+"/"+iconName;
+	icon.src = "img/"+section+"/"+iconName;
 	icon.id = "icon"+rowId;
 	
 	var dataCol = document.createElement("div");
