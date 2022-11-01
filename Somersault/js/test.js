@@ -43,7 +43,7 @@ var readJsonMethod = function(section){
 function createRow(id){
 	var row = document.createElement("div");
 	row.id = "resourceRow"+id.toString();
-	row.className = "row";
+	row.className = "row vanishable";
 	document.getElementsByClassName("mainContainer")[0].append(row);
 };
 
