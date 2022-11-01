@@ -1,21 +1,22 @@
+var types = ["scripts","sprites","fangames"]
 window.onload = function(){
 	var elements = document.getElementsByClassName("mainButton");
 	for(var i = 0; i < elements.length; i++){
 		elements[i].addEventListener("mouseover",mouseDown);
 		elements[i].addEventListener("mouseout",mouseUp);
-		elements[i].addEventListener("click",vanishCurrentTab);
+		elements[i].addEventListener("click",vanishCurrentTab(types[i]));
 	};
 };
 
 var frames   = 50;
-var vanishCurrentTab = function(){
+var vanishCurrentTab = function(section){
 	var vanishable = document.getElementsByClassName("vanishable");
 	var i = 0;
 	var opacity = 1.0;
 	var myInterval = setInterval(function(){
 		if (i == frames){ 
 			for(var k = 0; k < vanishable.length; k++){ vanishable[k].remove(); }//style.display = "none"; }
-			readJsonMethod("scripts")
+			readJsonMethod(section)
 			clearInterval(myInterval);
 		}
 		else{
@@ -66,30 +67,30 @@ function createItemBox(section,data,rowId){
 	
 	var box = document.createElement("div");
 	box.id = data["ID"];
-	box.className += "resourcePanel vanishable";
+	box.className += "resourcePanel";
 	
 	var iconCol = document.createElement("div");
-	iconCol.className += "col-xs-2 vanishable";
+	iconCol.className += "col-xs-2";
 	iconCol.id = "iconCol"+rowId;
 	
 	var icon = document.createElement("img");
-	icon.className += "resourceIcon vanishable";
+	icon.className += "resourceIcon";
 	icon.setAttribute("width","100%");
 	var iconName = data["icon"] == "default" ? data["icon"]+".png" : data["ID"]+"/"+data["icon"]
 	icon.src = "img/"+section+"/"+iconName;
 	icon.id = "icon"+rowId;
 	
 	var dataCol = document.createElement("div");
-	dataCol.className += "col-xs-10 col-md-10 vanishable";
+	dataCol.className += "col-xs-10 col-md-10";
 	dataCol.id = "dataCol"+rowId;
 	
 	var title = document.createElement("div");
-	title.className += "row vanishable";
+	title.className += "row";
 	title.innerHTML += data["name"];
 	title.id = "title"+rowId;
 	
 	var desc = document.createElement("div");
-	desc.className += "row descField vanishable";
+	desc.className += "row descField";
 	desc.innerHTML += data["desc"];
 	desc.id = "desc"+rowId;
 	
