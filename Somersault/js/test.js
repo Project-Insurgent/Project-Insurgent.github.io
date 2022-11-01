@@ -8,14 +8,16 @@ window.onload = function(){
 };
 
 var frames   = 50;
-function vanishCurrentTab(){
+var currentType = "";
+var vanishCurrentTab = function(){
 	var vanishable = document.getElementsByClassName("vanishable");
 	var i = 0;
 	var opacity = 1.0;
 	var myInterval = setInterval(function(){
 		if (i == frames){ 
 			for(var k = 0; k < vanishable.length; k++){ vanishable[k].style.display = "none"; } //remove(); }
-			readJsonMethod(this.id)
+			console.log(currentType);
+			readJsonMethod(currentType);
 			clearInterval(myInterval);
 		}
 		else{
@@ -111,6 +113,7 @@ var mouseDown = function() {
 	this.style["border-style"] = "solid";
 	this.style.top = posY;
 	
+	currentType = this.id;
 	var elem = document.getElementById(this.id);
 	elem.getElementsByClassName("mainBtnIcon")[0].style.display = "inline";
 	if (screen.width <= 767){ elem.getElementsByTagName("p")[0].style.display = "none"; }
