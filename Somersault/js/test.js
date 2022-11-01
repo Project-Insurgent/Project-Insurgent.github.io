@@ -1,22 +1,21 @@
-var types = ["scripts","sprites","fangames"]
 window.onload = function(){
 	var elements = document.getElementsByClassName("mainButton");
 	for(var i = 0; i < elements.length; i++){
 		elements[i].addEventListener("mouseover",mouseDown);
 		elements[i].addEventListener("mouseout",mouseUp);
-		elements[i].addEventListener("click",vanishCurrentTab(types[i]));
+		elements[i].addEventListener("click",vanishCurrentTab);
 	};
 };
 
 var frames   = 50;
-function vanishCurrentTab(section){
+function vanishCurrentTab(){
 	var vanishable = document.getElementsByClassName("vanishable");
 	var i = 0;
 	var opacity = 1.0;
 	var myInterval = setInterval(function(){
 		if (i == frames){ 
 			for(var k = 0; k < vanishable.length; k++){ vanishable[k].remove(); }//style.display = "none"; }
-			readJsonMethod(section)
+			readJsonMethod(this.id)
 			clearInterval(myInterval);
 		}
 		else{
@@ -63,7 +62,7 @@ function createRow(id){
 function createItemBox(section,data,rowId){
 	console.log(data);
 	var container = document.createElement("div");
-	container.className += "col col-md-6 vanishable";
+	container.className += "col col-md-6";
 	
 	var box = document.createElement("div");
 	box.id = data["ID"];
