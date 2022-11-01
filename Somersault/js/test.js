@@ -62,7 +62,7 @@ function createRow(id){
 function createItemBox(section,data,rowId){
 	console.log(data);
 	var container = document.createElement("div");
-	container.className += "col col-md-6";
+	container.className += "col col-md-6 vanishable";
 	
 	var box = document.createElement("div");
 	box.id = data["ID"];
