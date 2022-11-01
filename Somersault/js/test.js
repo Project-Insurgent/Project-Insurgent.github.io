@@ -114,6 +114,7 @@ var mouseDown = function() {
 	
 	var elem = document.getElementById(this.id);
 	elem.getElementsByClassName("mainBtnIcon")[0].style.display = "inline";
+	if (screen.width <= 210){ elem.getElementsByTagName("p")[0].style.display = "none"; }
 	/*var y = parseInt(this.style.top);
 	var i = 0;
 	var myInterval = setInterval(function(){
@@ -134,6 +135,7 @@ var mouseUp = function() {
 	
 	var elem = document.getElementById(this.id);
 	elem.getElementsByClassName("mainBtnIcon")[0].style.display = "none";
+	elem.getElementsByTagName("p")[0].style.display = "inline";
 /*	var y = parseInt(this.style.top);
 	var i = 0;
 	var myInterval = setInterval(function(){
