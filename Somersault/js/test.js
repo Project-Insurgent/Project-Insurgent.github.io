@@ -66,30 +66,30 @@ function createItemBox(section,data,rowId){
 	
 	var box = document.createElement("div");
 	box.id = data["ID"];
-	box.className += "resourcePanel";
+	box.className += "resourcePanel vanishable";
 	
 	var iconCol = document.createElement("div");
-	iconCol.className += "col-xs-2";
+	iconCol.className += "col-xs-2 vanishable";
 	iconCol.id = "iconCol"+rowId;
 	
 	var icon = document.createElement("img");
-	icon.className += "resourceIcon";
+	icon.className += "resourceIcon vanishable";
 	icon.setAttribute("width","100%");
 	var iconName = data["icon"] == "default" ? data["icon"]+".png" : data["ID"]+"/"+data["icon"]
 	icon.src = "img/"+section+"/"+iconName;
 	icon.id = "icon"+rowId;
 	
 	var dataCol = document.createElement("div");
-	dataCol.className += "col-xs-10 col-md-10";
+	dataCol.className += "col-xs-10 col-md-10 vanishable";
 	dataCol.id = "dataCol"+rowId;
 	
 	var title = document.createElement("div");
-	title.className  += "row";
+	title.className += "row vanishable";
 	title.innerHTML += data["name"];
 	title.id = "title"+rowId;
 	
 	var desc = document.createElement("div");
-	desc.className += "row descField";
+	desc.className += "row descField vanishable";
 	desc.innerHTML += data["desc"];
 	desc.id = "desc"+rowId;
 	
