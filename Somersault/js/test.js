@@ -44,6 +44,8 @@ function createRow(id){
 	var row = document.createElement("div");
 	row.id = "resourceRow"+id.toString();
 	row.className = "row vanishable";
+	row.style.opacity = 1;
+	row.style.display = "block";
 	document.getElementsByClassName("mainContainer")[0].append(row);
 };
 
