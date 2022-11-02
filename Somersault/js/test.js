@@ -10,18 +10,33 @@ window.onload = function(){
 var frames   = 50;
 var currentType = "";
 var vanishCurrentTab = function(){
+	var curType = currentType;
 	var vanishable = document.getElementsByClassName("vanishable");
 	var i = 0;
 	var opacity = 1.0;
 	var myInterval = setInterval(function(){
 		if (i == frames){ 
 			for(var k = 0; k < vanishable.length; k++){ vanishable[k].remove(); }
-			console.log(currentType);
-			readJsonMethod(currentType);
+			console.log(curType);
+			readJsonMethod(curType);
 			clearInterval(myInterval);
 		}
 		else{
 			opacity -= 1.0/frames;
+			for(var k = 0; k < vanishable.length; k++){ vanishable[k].style.opacity = opacity; }
+			i++;
+		}
+	},10);
+};
+
+var appearCurrentTab = function(){
+	var vanishable = document.getElementsByClassName("vanishable");
+	var i = 0;
+	var opacity = 0.0;
+	var myInterval = setInterval(function(){
+		if (i == frames){ clearInterval(myInterval); }
+		else{
+			opacity += 1.0/frames;
 			for(var k = 0; k < vanishable.length; k++){ vanishable[k].style.opacity = opacity; }
 			i++;
 		}
@@ -57,7 +72,7 @@ function createRow(id){
 		</div>
 		<div class="col-xs-10 col-md-10">
 			<div class="row">Somersault Utilities Script</div>
-			<div class="row descField">This is just a script with lots of different things to be done and what not. AKA, lorem ipsum dolor dit amet.</div>
+			<div class="row descField">This is just a script with lots of different things to be done.</div>
 		</div>
 	</div>
 </div>
@@ -119,16 +134,6 @@ var mouseDown = function() {
 	var elem = document.getElementById(this.id);
 	elem.getElementsByClassName("mainBtnIcon")[0].style.display = "inline";
 	if (screen.width <= 767){ elem.getElementsByTagName("p")[0].style.display = "none"; }
-	/*var y = parseInt(this.style.top);
-	var i = 0;
-	var myInterval = setInterval(function(){
-		if (i == moveY || parseInt(elem.style.top) == posY-moveY){ clearInterval(myInterval); }
-		else{
-			y--;
-			i++;
-			elem.style.top = y+'px';
-		}
-	},10);*/
 };
 
 var mouseUp = function() {
@@ -140,14 +145,6 @@ var mouseUp = function() {
 	var elem = document.getElementById(this.id);
 	elem.getElementsByClassName("mainBtnIcon")[0].style.display = "none";
 	elem.getElementsByTagName("p")[0].style.display = "inline";
-/*	var y = parseInt(this.style.top);
-	var i = 0;
-	var myInterval = setInterval(function(){
-		if (i == moveY || parseInt(elem.style.top) == posY){ clearInterval(myInterval); }
-		else{
-			y++;
-			i++;
-			elem.style.top = y+'px';
-		}
-	},10);*/
 };
+
+//python -m http.server 8000 -b [ip]
