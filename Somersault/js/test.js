@@ -59,6 +59,7 @@ var readJsonMethod = function(section){
 	fetch("metadata/"+section+".json")
 		.then(results => results.json())
 		.then(function(data){
+			console.log(data.toString());
 			for (var i = 0; i < data.length; i++){
 				if (i % 2 == 0){ createRow(Math.floor(i/2)); }
 				createItemBox(section,data[i],Math.floor(i/2).toString());

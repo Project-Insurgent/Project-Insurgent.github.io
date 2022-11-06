@@ -4,6 +4,12 @@ body {
 	background-attachment: fixed;
 }
 
+.jumbotron {
+	border-radius: 10px;
+	position: relative;
+	top: 15px	
+}
+
 .headerContainer {
 	position: sticky;
 }

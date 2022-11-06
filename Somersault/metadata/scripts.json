@@ -2,7 +2,7 @@
 	{
 		"ID": "SUSc",
 		"name": "Somersault Utilities Script",
-		"subtitle": "'Lookin' kinda SUS'",
+		"subtitle": "Looking kinda SUS",
 		"desc": "This kit comes with quite a bunch of useful methods to use in your own fangames and is mandatory for the rest of my plugins to work.",
 		"icon": "default"
 	},
@@ -10,7 +10,7 @@
 		"ID": "DPPT_Map",
 		"name": "Sinnoh Map Script",
 		"subtitle": "If you a re a true gen. 4 lover, you must use this plugin",
-		"desc": "jada jada jada jada jada jada jada jada jada jada jada jada jada jada jada jada jada jada jada jada",
+		"desc": "This plugin implements a nostalgic region map with the style of the classic Diamond and Pearl games. It includes multiscreen options!",
 		"icon": "LucasDawn.gif"
 	}
 ]
