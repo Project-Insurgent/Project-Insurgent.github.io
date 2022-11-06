@@ -2,13 +2,15 @@
 	{
 		"ID": "SUSc",
 		"name": "Somersault Utilities Script",
-		"desc": "A basic script with stuff in it.",
+		"subtitle": "'Lookin' kinda SUS'",
+		"desc": "This kit comes with quite a bunch of useful methods to use in your own fangames and is mandatory for the rest of my plugins to work.",
 		"icon": "default"
 	},
 	{
 		"ID": "DPPT_Map",
 		"name": "Sinnoh Map Script",
-		"desc": "A basic script with more stuff in it.",
+		"subtitle": "A basic script with more stuff in it.",
+		"desc": "jada jada jada jada jada jada jada jada jada jada jada jada jada jada jada jada jada jada jada jada",
 		"icon": "LucasDawn.gif"
 	}
 ]
