@@ -16,25 +16,29 @@ window.onload = function(){
 	var vanishables = document.getElementsByClassName("vanishable");
 	for(var k = 0; k < vanishables.length; k++){ vanishables[k].style.opacity = 1; };
 	//document.getElementById("mainTabs").addEventListener("load",loadTab("mainTab.html"));
+	
+	var xButton = document.getElementById("xButton").addEventListener("click",function(){
+		document.getElementsByClassName("detailsTab")[0].style.display = "none";
+	});
 };
 
 var frames   = 30;
 var currentType = "";
 var vanishCurrentTab = function(){
-	var curType = currentType;
+	if (this.classList.contains("mainButton")){ currentType = this.id; };
 	var vanishable = document.getElementsByClassName("vanishable");
 	var i = 0;
 	var opacity = 1.0;
 	var myInterval = setInterval(function(){
-		if (i == frames){ 
+		if (i === frames){ 
 			for(var k = 0; k < vanishable.length; k++){ vanishable[k].remove(); }
-			readJsonMethod(curType);
+			readJsonMethod(currentType);
 			appearCurrentTab();
 			clearInterval(myInterval);
 		}
 		else{
 			opacity -= 1.0/frames;
-			for(var k = 0; k < vanishable.length; k++){ vanishable[k].style.opacity = opacity; }
+			for(var h = 0; h < vanishable.length; h++){ vanishable[h].style.opacity = opacity; }
 			i++;
 		}
 	},10);
@@ -42,11 +46,11 @@ var vanishCurrentTab = function(){
 
 var appearCurrentTab = function(){
 	var vanishables = document.getElementsByClassName("vanishable");
-	for(var i = 0; i < vanishables.length; i++){ vanishables[i].style.display = "block"; }
+	for(var j = 0; j < vanishables.length; j++){ vanishables[j].style.display = "block"; }
 	var i = 0;
 	var opacity = 0.0;
 	var myInterval = setInterval(function(){
-		if (i == frames){ clearInterval(myInterval); }
+		if (i === frames){ clearInterval(myInterval); }
 		else{
 			opacity += 1.0/frames;
 			for(var k = 0; k < vanishables.length; k++){ vanishables[k].style.opacity = opacity; }
@@ -55,15 +59,17 @@ var appearCurrentTab = function(){
 	},10);
 };
 
+var dataHash = {};
 var readJsonMethod = function(section){
 	fetch("metadata/"+section+".json")
 		.then(results => results.json())
 		.then(function(data){
 			console.log(data.toString());
 			for (var i = 0; i < data.length; i++){
-				if (i % 2 == 0){ createRow(Math.floor(i/2)); }
+				if (i % 2 === 0){ createRow(Math.floor(i/2)); }
 				createItemBox(section,data[i],Math.floor(i/2).toString());
 			}
+			dataHash[section] = data;
 		}
 	);
 };
@@ -74,25 +80,8 @@ function createRow(id){
 	row.className += "row vanishable";
 	//row.style.display = "block";
 	document.getElementsByClassName("mainContainer")[0].append(row);
-};
+}
 
-/*//v2:
-    <div class="col col-md-6">
-		<div class="resourcePanel">
-            <div class="row">
-                <div class="col-md-offset-1 col-xs-3 col-xs-offset-1">
-                    <img class="resourceIcon" width="100%" src="./img/scripts/default.png">
-                </div>
-                <div class="col-md-9 col-xs-8">
-					<div class="col-xs-12"> Somersault Utilities Script </div>
-					<div class="col-xs-12 subtitle"> qwertytrewqwerty </div>
-				</div>
-            </div>
-            <div class="row descField">
-                <div class="col-xs-11 col-xs-offset-1">This is just a script with lots of different things to be done.</div>
-            </div>
-        </div>
-	</div>*/
 function createItemBox(section,data,rowId){
 	console.log(data);
 	var container = document.createElement("div");
@@ -113,7 +102,7 @@ function createItemBox(section,data,rowId){
 	iconCol.id = "iconCol"+rowId;
 	
 	var icon = document.createElement("img");
-	var iconName = data["icon"] == "default" ? data["icon"]+".png" : data["ID"]+"/"+data["icon"]
+	var iconName = data["icon"] === "default" ? data["icon"]+".png" : data["ID"]+"/"+data["icon"];
 	icon.className += "resourceIcon";
 	icon.src = "img/"+section+"/"+iconName;
 	icon.id = "icon"+rowId;
@@ -155,7 +144,39 @@ function createItemBox(section,data,rowId){
 	descRow.append(descCol);
 
 	document.getElementById("resourceRow"+rowId).append(container);
-	//container.addEventListener("click",loadTab("../detailsTab.html"));
+	container.addEventListener("click",function(){showDetailsTab(data);});
+}
+
+var showDetailsTab = function(data){
+	
+	var detailsTab = document.getElementsByClassName("detailsTab")[0];
+	var headerTab  = document.getElementsByClassName("detailsTabHeader")[0];
+	var dataTab    = document.getElementsByClassName("detailsTabBody")[0];
+	removeChilds(detailsTab,"dtBasic");
+	detailsTab.style.display = "block";
+	
+	var container = document.createElement("div");
+	container.className += "col-xs-12";
+	
+	var title = document.createElement("div");
+	title.className += "title";
+	title.innerHTML += data["name"];
+	
+	headerTab.append(container);
+	container.append(title);
+	
+	headerTab.style["background-image"] =  "url('../img/"+currentType+"/"+data["ID"]+"/banner.png')";
+};
+
+var removeChilds = function(parent,exception) { 
+	var itemsList = parent.children;
+	var parentStr = parent.id.toString();
+	//var nthChild = //document.querySelector("#"+parentStr+' :nth-child('+counter.toString()+")");
+	for (var i = 0; i < itemsList.length;i++) { 
+		removeChilds(parent.children.item(i),exception);
+		if (!parent.children.item(i).classList.contains(exception)) { parent.removeChild(parent.children.item(i)); };
+		//nthChild = //document.querySelector("#"+parentStr+' :nth-child('+counter.toString()+")");
+	};
 };
 
 var moveY = 5;
@@ -164,11 +185,13 @@ var mouseDown = function() {
 	this.style["background-color"]="rgba(231,199,110,1.00)";
 	this.style["box-shadow"] = "0px 5px 5px rgba(20,20,20,0.4)";
 	this.style["border-style"] = "solid";
-	currentType = this.id;
+	
 	//this.style.top = posY; highlightable
-	var elem = document.getElementById(this.id);
-	elem.getElementsByClassName("mainBtnIcon")[0].style.display = "inline";
-	if (screen.width <= 767){ elem.getElementsByTagName("p")[0].style.display = "none"; }
+	if (this.classList.contains("mainButton")){
+		var elem = document.getElementById(this.id);
+		elem.getElementsByClassName("mainBtnIcon")[0].style.display = "inline";
+		if (screen.width <= 767){ elem.getElementsByTagName("p")[0].style.display = "none"; }
+	}
 };
 
 var mouseUp = function() {
@@ -176,10 +199,11 @@ var mouseUp = function() {
 	this.style["box-shadow"] = "0px 0px 0px rgba(0,0,0,0)";
 	this.style["border-style"] = "none";
 	//this.style.top = posY-moveY;
-	
-	var elem = document.getElementById(this.id);
-	elem.getElementsByClassName("mainBtnIcon")[0].style.display = "none";
-	elem.getElementsByTagName("p")[0].style.display = "inline";
+	if (this.classList.contains("mainButton")){
+		var elem = document.getElementById(this.id);
+		elem.getElementsByClassName("mainBtnIcon")[0].style.display = "none";
+		elem.getElementsByTagName("p")[0].style.display = "inline";
+	}
 };
 
 //python -m http.server 8000 -b [ip]

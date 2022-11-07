@@ -19,34 +19,49 @@ body {
 	border-radius: 10px;
 }
 
-body {
-	background-image: url("../img/bg3.png");
-}
-
-img[class="mainBtnIcon mainBtnScripts"] {
-	content: url("../img/main/scriptsIcon.png");
-}
-
-img[class="mainBtnIcon mainBtnSprites"] {
-	content: url("../img/main/spritesIcon.png");
-}
-
-img[class="mainBtnIcon mainBtnFangames"] {
-	content: url("../img/main/fangamesIcon.png");
-}
-
-img[class=webLogo] {
+body { background-image: url("../img/bg3.png"); }
+img[id="scriptsIcon"]  { content: url("../img/main/scriptsIcon.png");  }
+img[id="spritesIcon"]  { content: url("../img/main/spritesIcon.png");  }
+img[id="fangamesIcon"] { content: url("../img/main/fangamesIcon.png"); }
+img[class="webLogo"] {
 	content: url("../img/logo.png");
 	width: 114px;
 	height: 114px;
 	alt: "";
 }
 
-.resourcePanel {
+.closeButton {
+	width: 100%;
+	height: 100%;
+}
+
+.closeButtonBtn {
+	cursor: pointer;
+	border: none;
+	background-color: transparent;
+	color: white;
+	font-size: 1.5em;
+	justify-content: center;
+	width: 30px;
+	height: auto;
+}
+
+.col-Xbutton {
 	position: relative;
+	padding-top: 10px;
+	color: black;
+	background-color: transparent;
+}
+
+.detailsTab, .resourcePanel, .mainButton{
 	background-color: rgba(208,175,83,1.00);
 	border-radius: 10px;
-	border-style: none;
+	border-style:none;
+	color: rgba(81,56,14,1.00);
+}
+
+.resourcePanel {
+	position: relative;
 	padding-top: 10px;
 	margin-top: 15px;
 	margin-bottom: 15px;
@@ -56,20 +71,44 @@ img[class=webLogo] {
 	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 	font-weight: bold;
 	font-size:180%;
+	cursor: pointer;
 }
 
-.mainTab {
-	position:relative;
-	top:0%;
-	width:1px;
-	min-width: 100%;
-	height:100%;
-	border-radius:10px;
-	border-style:none;
+.detailsTab {
+	position: absolute;
+	top: 0px;
+	left: 5%;
+	width:  90%;
+	height: 95%;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	font-weight: bold;
+	display: none;	
+	
+	transition: all 0.2s ease-in-out;
+	z-index: 10000;
 }
 
-.subtitle {
-	font-size:70%;
+.detailsTabHeader {
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-attachment:fixed;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	margin-left:0px;
+	margin-right:0px;
+}
+
+.detailsTabBody {
+	padding-left: 20px;
+}
+
+.title {
+	font-size:200%;	
+	align-items : center;
+	padding-top: 50px;
+	justify-content: center;
+	color: white;
 }
 
 .resourceIcon {
@@ -77,22 +116,14 @@ img[class=webLogo] {
 	width: 100%;
 }
 
-.descField {
-	color: rgba(81,56,14,1.00);
-	font-size: 65%;
-}
+.subtitle { font-size:70%; }
+.descField { font-size: 65%; }
 
-p {
-	display: inline;
-}
+p {	display: inline; }
 
 .mainButton {
 	width: 100%;
 	height: 60px;
-	background-color: rgba(208,175,83,1.00);
-	border-radius: 10px;
-	border-style:none;
-	color: rgba(81,56,14,1.00);
 	font-size:200%;
 	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
 	font-weight: bold;
@@ -100,7 +131,7 @@ p {
  	justify-content : center;
 	position:relative;
 	margin-top: 15px;
-	transition: all 0.1s linear;
+	transition: all 0.1s ease-in-out;
 }
 
 .vanishable {
