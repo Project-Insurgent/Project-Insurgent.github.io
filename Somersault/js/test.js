@@ -143,6 +143,14 @@ function createItemBox(section,data,rowId){
 	container.addEventListener("click",() => showDetailsTab(data));
 }
 
+var site = "https://github.com/Project-Insurgent/project-insurgent.github.com/tree/main/Somersault/"
+var resource = "";
+var defaultInstr = function() {
+	return "0. Download this <a src="+site+currentType+'/'+resource+">zip</a>.<br />"+
+	"1. Select all the folders in the zip but the READMEs.<br />"+
+	"2. Uncompress them directly into your game root folder.";
+};
+
 var showDetailsTab = function(data){
 	
 	var detailsTab = document.getElementsByClassName("detailsTab")[0];
@@ -176,9 +184,11 @@ var showDetailsTab = function(data){
 	instrTitle.className += "col-xs-12 title";
 	instrTitle.innerHTML += "Installation Instructions:";
 	
+	resource = data["ID"];
+	const instr = data["instr"] == "default" ? defaultInstr() : data["instr"];
 	const instrBody = document.createElement("div");
 	instrBody.className += "col-xs-12 instructions";
-	instrBody.innerHTML += data["instr"] + "<br />AND THAT'S IT!";
+	instrBody.innerHTML += instr + "<br />AND THAT'S IT!";
 	
 	headerTab.append(container);
 	container.append(title);
