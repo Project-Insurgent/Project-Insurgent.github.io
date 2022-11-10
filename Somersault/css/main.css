@@ -100,15 +100,31 @@ img[class="webLogo"] {
 }
 
 .detailsTabBody {
-	padding-left: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+	text-align: justify;
+	text-justify: inter-word;
 }
 
-.title {
+.detailRow {
+	margin-bottom: 20px;
+}
+
+.instructions {
+	padding-left: 50px;	
+}
+
+.resourceTitle {
 	font-size:200%;	
 	align-items : center;
 	padding-top: 50px;
 	justify-content: center;
 	color: white;
+}
+
+.title {
+	font-weight: bold;
+	font-size:150%;	
 }
 
 .resourceIcon {

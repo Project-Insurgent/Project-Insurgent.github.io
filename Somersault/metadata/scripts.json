@@ -4,8 +4,9 @@
 		"name": "Somersault Utilities Script",
 		"subtitle": "Looking kinda SUS",
 		"desc": "This kit comes with quite a bunch of useful methods to use in your own fangames and is mandatory for the rest of my plugins to work.",
+		"longDesc": "This set of scripts are the “brain” of all my other plugins, and hence they all use this kit as the main source of methods and classes. But that does not mean that you cannot use it as a standalone plugin as well. Just the opposite! This kit comes with quite a bunch of useful methods and utilities that you may want to use in your own fangames.",
+		"instr":"default",
 		"icon": "default",
-		"instructions": "0. Download this pack.\n1. SELECT ALL THE FOLDERS IN THE ZIP BUT THE READMEs And uncompress them directly into your game root folder. AND THAT’S IT!",
 		"credits": ["S.A. Somersault"]
 	},
 
@@ -14,9 +15,10 @@
 		"name": "Sinnoh Map Script",
 		"subtitle": "Created by and for true sinnoh lovers.",
 		"desc": "This plugin implements a nostalgic region map with the style of the classic Diamond and Pearl games. It includes multiscreen options!",
+		"instr":"",
+		"longDesc": "",
 		"icon": "LucasDawn.gif",
 		"dependencies": ["SUSc"],
-		"instructions": "",
 		"credits": ["S.A. Somersault"]
 	}
 ]

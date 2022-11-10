@@ -1,10 +1,7 @@
-var loadTab = function(url){
+/*var loadTab = function(url){
 	window.open(url, 'mainTab');
 	iFrameResize({log: true }, "#mainTabs");
-	setTimeout(function(){document.getElementById("mainTabs").style.display = "inline";},200);
-};
-
-
+	setTimeout(function(){document.getElementById("mainTabs").style.display = "inline";},200);};*/
 window.onload = function(){
 	var elements = document.getElementsByClassName("mainButton");
 	for(var i = 0; i < elements.length; i++){
@@ -15,7 +12,6 @@ window.onload = function(){
 
 	var vanishables = document.getElementsByClassName("vanishable");
 	for(var k = 0; k < vanishables.length; k++){ vanishables[k].style.opacity = 1; };
-	//document.getElementById("mainTabs").addEventListener("load",loadTab("mainTab.html"));
 	
 	var xButton = document.getElementById("xButton").addEventListener("click",function(){
 		document.getElementsByClassName("detailsTab")[0].style.display = "none";
@@ -144,7 +140,7 @@ function createItemBox(section,data,rowId){
 	descRow.append(descCol);
 
 	document.getElementById("resourceRow"+rowId).append(container);
-	container.addEventListener("click",function(){showDetailsTab(data);});
+	container.addEventListener("click",() => showDetailsTab(data));
 }
 
 var showDetailsTab = function(data){
@@ -159,16 +155,46 @@ var showDetailsTab = function(data){
 	container.className += "col-xs-12";
 	
 	var title = document.createElement("div");
-	title.className += "title";
-	title.innerHTML += data["name"];
+	title.className += "resourceTitle";
+	title.innerHTML += `<p>${data["name"]}</p>`;
+	
+	var descRow = document.createElement("div");
+	descRow.className += "row detailRow";
+	
+	var descTitle = document.createElement("div");
+	descTitle.className += "col-xs-12 title";
+	descTitle.innerHTML += "Description:";
+	
+	var descBody = document.createElement("div");
+	descBody.className += "col-xs-12";
+	descBody.innerHTML += data["longDesc"];
+	
+	var instrRow = document.createElement("div");
+	instrRow.className += "row detailRow";
+	
+	var instrTitle = document.createElement("div");
+	instrTitle.className += "col-xs-12 title";
+	instrTitle.innerHTML += "Installation Instructions:";
+	
+	const instrBody = document.createElement("div");
+	instrBody.className += "col-xs-12 instructions";
+	instrBody.innerHTML += data["instr"] + "<br />AND THAT'S IT!";
 	
 	headerTab.append(container);
 	container.append(title);
 	
+	descRow.append(descTitle);
+	descRow.append(descBody);
+	dataTab.append(descRow);
+	
+	instrRow.append(instrTitle);
+	instrRow.append(instrBody);
+	dataTab.append(instrRow);
+	
 	headerTab.style["background-image"] =  "url('../img/"+currentType+"/"+data["ID"]+"/banner.png')";
 };
 
-var removeChilds = function(parent,exception) { 
+const removeChilds = (parent,exception) => { 
 	var itemsList = parent.children;
 	var parentStr = parent.id.toString();
 	//var nthChild = //document.querySelector("#"+parentStr+' :nth-child('+counter.toString()+")");
