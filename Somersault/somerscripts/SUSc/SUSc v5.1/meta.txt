@@ -1,0 +1,3 @@
+Name         = Somersault Utilities Script
+Version      = 5.1.0
+Credits      = S.A. Somersault
