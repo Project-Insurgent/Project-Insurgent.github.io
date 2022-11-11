@@ -8,32 +8,28 @@ window.onload = function(){
 		elements[i].addEventListener("click",vanishCurrentTab);
 		elements[i].addEventListener("mouseover",mouseDown);
 		elements[i].addEventListener("mouseout",mouseUp);
-	};
+	}
 
 	var vanishables = document.getElementsByClassName("vanishable");
-	for(var k = 0; k < vanishables.length; k++){ vanishables[k].style.opacity = 1; };
-	
-	var xButton = document.getElementById("xButton").addEventListener("click",function(){
-		document.getElementsByClassName("detailsTab")[0].style.display = "none";
-	});
+	for(var k = 0; k < vanishables.length; k++){ vanishables[k].style.opacity = 1; }
 };
 
-var frames   = 30;
+var _frames   = 30;
 var currentType = "";
 var vanishCurrentTab = function(){
-	if (this.classList.contains("mainButton")){ currentType = this.id; };
+	if (this.classList.contains("mainButton")){ currentType = this.id; }
 	var vanishable = document.getElementsByClassName("vanishable");
 	var i = 0;
 	var opacity = 1.0;
 	var myInterval = setInterval(function(){
-		if (i === frames){ 
+		if (i === _frames){ 
 			for(var k = 0; k < vanishable.length; k++){ vanishable[k].remove(); }
 			readJsonMethod(currentType);
 			appearCurrentTab();
 			clearInterval(myInterval);
 		}
 		else{
-			opacity -= 1.0/frames;
+			opacity -= 1.0/_frames;
 			for(var h = 0; h < vanishable.length; h++){ vanishable[h].style.opacity = opacity; }
 			i++;
 		}
@@ -46,9 +42,9 @@ var appearCurrentTab = function(){
 	var i = 0;
 	var opacity = 0.0;
 	var myInterval = setInterval(function(){
-		if (i === frames){ clearInterval(myInterval); }
+		if (i === _frames){ clearInterval(myInterval); }
 		else{
-			opacity += 1.0/frames;
+			opacity += 1.0/_frames;
 			for(var k = 0; k < vanishables.length; k++){ vanishables[k].style.opacity = opacity; }
 			i++;
 		}
@@ -98,7 +94,7 @@ function createItemBox(section,data,rowId){
 	iconCol.id = "iconCol"+rowId;
 	
 	var icon = document.createElement("img");
-	var iconName = data["icon"] === "default" ? data["icon"]+".png" : data["ID"]+"/"+data["icon"];
+	var iconName = data["icon"] ? data["ID"]+"/"+data["icon"] : "default.png"; // === "default"; "S.A. Somersault"
 	icon.className += "resourceIcon";
 	icon.src = "img/"+section+"/"+iconName;
 	icon.id = "icon"+rowId;
@@ -143,80 +139,163 @@ function createItemBox(section,data,rowId){
 	container.addEventListener("click",() => showDetailsTab(data));
 }
 
-var site = "https://github.com/Project-Insurgent/project-insurgent.github.com/tree/main/Somersault/"
+var site = "https://github.com/Project-Insurgent/project-insurgent.github.com/tree/main/Somersault/";
 var resource = "";
+
+var downloadNote = function() {
+	return "<strong>Note:</strong> For getting the zip file, install this <a  class='myLink' href='https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo/33753575#33753575' target=_blank>extension</a>. Then right click on the 'vX.X' directory and click <strong>'gitZip Download'->'Current Folder'</strong>.<br />";
+};
+
 var defaultInstr = function() {
-	return "0. Download this <a src="+site+currentType+'/'+resource+">zip</a>.<br />"+
+	return ""+
+	"0. Download this <a class='myLink' href="+site+currentType+'/'+resource+" target=_blank>zip</a>.<br />"+
 	"1. Select all the folders in the zip but the READMEs.<br />"+
-	"2. Uncompress them directly into your game root folder.";
+	"2. Uncompress them directly into your game root folder.<br />";
+};
+
+var createInstructionBody = function(data) {
+	var ret = document.createElement("div");
+	ret.className += "col-xs-12 instructions";
+	
+	resource = data["ID"];
+	var instr = data["instr"] ? (data["addDefInstr"] ? defaultInstr()+data["instr"]+downloadNote() : data["instr"]) : 
+		defaultInstr()+downloadNote();
+
+	
+	ret.innerHTML += instr;
+	if (!data["instr"] || data["addDefInstr"]) { 
+		var imgCol = document.createElement("div");
+		imgCol.className += "col-xs-10 col-xs-offset-2";
+		var img = document.createElement("img");
+		img.setAttribute("class","downloadNoteImg");
+		img.setAttribute("src","img/downloadNote.png");
+		ret.append(imgCol);
+		imgCol.append(img);
+	}
+	var thatsIt = document.createElement("div");
+	thatsIt.className += "col-xs-12";
+	thatsIt.innerHTML += "<br /><strong>AND THAT'S IT!</strong>";
+	ret.append(thatsIt);
+	
+	return ret;
 };
 
 var showDetailsTab = function(data){
+	if (data["addDefInstr"] == null ) {data["addDefInstr"] = true;}
+	if (data["deps"] == null){ data["deps"] = []; }
+	data["deps"].unshift("S.A. Somersault");
 	
-	var detailsTab = document.getElementsByClassName("detailsTab")[0];
-	var headerTab  = document.getElementsByClassName("detailsTabHeader")[0];
-	var dataTab    = document.getElementsByClassName("detailsTabBody")[0];
-	removeChilds(detailsTab,"dtBasic");
-	detailsTab.style.display = "block";
+	
+	var detailsTab = document.createElement("div");
+	detailsTab.id  = "detailsTab";
+	detailsTab.className += "detailsTab";
+	detailsTab.style.display = "inline";
+	
+	var headerTab = document.createElement("div");
+	headerTab.className += "dtBasic row detailsTabHeader";
+
+	var dataTab = document.createElement("div");
+	dataTab.className = "dtBasic row detailsTabBody";
+	
+	var buttonCol = document.createElement("div");
+	buttonCol.className += "dtBasic col-Xbutton col-xs-1 col-xs-offset-11";
+	
+	var xButton = document.createElement("button");
+	xButton.className += "dtBasic closeButtonBtn";
+	xButton.id = "xButton";
+	xButton.addEventListener("click",() => document.getElementById("detailsTab").remove());
+	
+	var xIcon = document.createElement("span");
+	xIcon.className += "dtBasic glyphicon glyphicon-remove closeButtonBtn";
+	xIcon["aria-hidden"]="true";
+	
+	detailsTab.append(headerTab);
+	detailsTab.append(dataTab);
+	headerTab.append(buttonCol);
+	buttonCol.append(xButton);
+	xButton.append(xIcon);
+	document.getElementById("resourcesContainer").append(detailsTab);
+	//------------------------------------------------------
 	
 	var container = document.createElement("div");
 	container.className += "col-xs-12";
 	
 	var title = document.createElement("div");
 	title.className += "resourceTitle";
-	title.innerHTML += `<p>${data["name"]}</p>`;
-	
-	var descRow = document.createElement("div");
-	descRow.className += "row detailRow";
-	
-	var descTitle = document.createElement("div");
-	descTitle.className += "col-xs-12 title";
-	descTitle.innerHTML += "Description:";
-	
-	var descBody = document.createElement("div");
-	descBody.className += "col-xs-12";
-	descBody.innerHTML += data["longDesc"];
-	
-	var instrRow = document.createElement("div");
-	instrRow.className += "row detailRow";
-	
-	var instrTitle = document.createElement("div");
-	instrTitle.className += "col-xs-12 title";
-	instrTitle.innerHTML += "Installation Instructions:";
-	
-	resource = data["ID"];
-	const instr = data["instr"] == "default" ? defaultInstr() : data["instr"];
-	const instrBody = document.createElement("div");
-	instrBody.className += "col-xs-12 instructions";
-	instrBody.innerHTML += instr + "<br />AND THAT'S IT!";
+	title.innerHTML += data["name"];
 	
 	headerTab.append(container);
 	container.append(title);
 	
-	descRow.append(descTitle);
-	descRow.append(descBody);
-	dataTab.append(descRow);
+	if (data["longDesc"]){	
+		var descRow = document.createElement("div");
+		descRow.className += "row detailRow";
+		
+		var descTitle = document.createElement("div");
+		descTitle.className += "col-xs-12 title";
+		descTitle.innerHTML += "Description:";
+		
+		var descBody = document.createElement("div");
+		descBody.className += "col-xs-12";
+		descBody.innerHTML += data["longDesc"];
+		
+		descRow.append(descTitle);
+		descRow.append(descBody);
+		dataTab.append(descRow);
+	}
 	
-	instrRow.append(instrTitle);
-	instrRow.append(instrBody);
-	dataTab.append(instrRow);
+	if (data["instr"] || data["addDefInstr"]){
+		var instrRow = document.createElement("div");
+		instrRow.className += "row detailRow";
+		
+		var instrTitle = document.createElement("div");
+		instrTitle.className += "col-xs-12 title";
+		instrTitle.innerHTML += "Installation Instructions:";
+		
+		var instrBody = createInstructionBody(data);
+		instrRow.append(instrTitle);
+		instrRow.append(instrBody);
+		dataTab.append(instrRow);
+	}
+	
+	if (data["img"]){
+		var imgRow = document.createElement("div");
+		imgRow.className += "row detailRow";
+		dataTab.append(imgRow);
+		
+		var imgTitle = document.createElement("div");
+		imgTitle.className += "col-xs-12 title";
+		imgTitle.innerHTML += "Screenshots:";
+		imgRow.append(imgTitle);
+		
+		for (var i = 0; i < data["img"].length;i++){
+			var imgBody = document.createElement("div");
+			imgBody.className += "col-xs-4";
+			
+			var img = document.createElement("img");
+			img.style.width= "100%";
+			img.setAttribute("src","img/"+currentType+"/"+data["ID"]+"/"+data["img"][i]+".png");
+			
+			imgBody.append(img);
+			imgRow.append(imgBody);
+		}
+	}
 	
 	headerTab.style["background-image"] =  "url('../img/"+currentType+"/"+data["ID"]+"/banner.png')";
 };
 
+/*
 const removeChilds = (parent,exception) => { 
 	var itemsList = parent.children;
 	var parentStr = parent.id.toString();
 	//var nthChild = //document.querySelector("#"+parentStr+' :nth-child('+counter.toString()+")");
 	for (var i = 0; i < itemsList.length;i++) { 
-		removeChilds(parent.children.item(i),exception);
-		if (!parent.children.item(i).classList.contains(exception)) { parent.removeChild(parent.children.item(i)); };
+		removeChilds(parent.children[i],exception);
+		if (!parent.children[i].classList.contains(exception)) { parent.removeChild(parent.children[i]); };
 		//nthChild = //document.querySelector("#"+parentStr+' :nth-child('+counter.toString()+")");
 	};
-};
+};*/
 
-var moveY = 5;
-var posY = 10;
 var mouseDown = function() {
 	this.style["background-color"]="rgba(231,199,110,1.00)";
 	this.style["box-shadow"] = "0px 5px 5px rgba(20,20,20,0.4)";

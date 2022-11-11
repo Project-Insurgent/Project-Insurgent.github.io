@@ -1,0 +1,4 @@
+Name         = DPPT Map Script
+Version      = 2.2.0
+Requires     = Somersault Utilities Script,5.1
+Credits      = S.A.Somersault
