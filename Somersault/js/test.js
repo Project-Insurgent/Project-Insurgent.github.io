@@ -154,7 +154,7 @@ var defaultInstr = function(resource,version) {
 
 var createInstructionBody = function(data) {
 	var ret = document.createElement("div");
-	ret.className += "col-xs-12 instructions";
+	ret.className += "col-xs-12 content";
 	
 	resource = data["ID"];
 	var instr = data["instr"] ? (data["addDefInstr"] ? defaultInstr(data["ID"],data["version"])+data["instr"]+downloadNote() : data["instr"]) : 
@@ -180,9 +180,10 @@ var createInstructionBody = function(data) {
 };
 
 var showDetailsTab = function(data){
+	var authorName = "S.A. Somersault";
 	if (data["addDefInstr"] == null ) {data["addDefInstr"] = true;}
 	if (data["credits"] == null){ data["credits"] = []; }
-	data["credits"].unshift("S.A. Somersault");
+	if (data["credits"][0] !== authorName) { data["credits"].unshift(authorName); }
 	
 	
 	var detailsTab = document.createElement("div");
@@ -235,7 +236,7 @@ var showDetailsTab = function(data){
 		descTitle.innerHTML += "Description:";
 		
 		var descBody = document.createElement("div");
-		descBody.className += "col-xs-12";
+		descBody.className += "col-xs-12 content";
 		descBody.innerHTML += data["longDesc"];
 		
 		descRow.append(descTitle);
@@ -251,7 +252,7 @@ var showDetailsTab = function(data){
 	creditsTitle.innerHTML += "Credits:";
 	
 	var credits = document.createElement("div");
-	credits.className += "col-xs-12 instructions";
+	credits.className += "col-xs-12 content";
 	for(var k = 0; k < data["credits"].length; k++){ credits.innerHTML += data["credits"][k]+"<br />"; }
 	dataTab.append(creditsRow);
 	creditsRow.append(creditsTitle);
@@ -265,7 +266,7 @@ var showDetailsTab = function(data){
 	docTitle.innerHTML += "Documentation:";
 	
 	var documentation = document.createElement("div");
-	documentation.className += "col-xs-12";
+	documentation.className += "col-xs-12 content";
 	documentation.innerHTML += "For the full documentation of this plugin, click <a class='myLink' href="+site+currentType+'/'+data["ID"]+'/'+"README.pdf target=_blank>here</a>";
 	dataTab.append(docRow);
 	docRow.append(docTitle);
