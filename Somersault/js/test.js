@@ -145,11 +145,11 @@ var downloadNote = function() {
 	return "<strong>Note:</strong> For getting the zip file, install this <a  class='myLink' href='https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo/33753575#33753575' target=_blank>extension</a>. Then right click anywhere on the directory and click <strong>'gitZip Download'->' Current folder - vX.X'</strong>.<br />";
 };
 
-var defaultInstr = function(resource,version) {
+var defaultInstr = function(resource,version,idx) {
 	return ""+
-	"0. Download this <a class='myLink' href="+site+currentType+'/'+resource+'/'+version+" target=_blank>zip</a>.<br />"+
-	"1. Select all the folders in the zip but the READMEs.<br />"+
-	"2. Uncompress them directly into your game root folder.<br />";
+	(idx).toString()+". Download this <a class='myLink' href="+site+currentType+'/'+resource+'/'+version+" target=_blank>zip</a>.<br />"+
+	(idx+1).toString()+". Select all the folders in the zip but the READMEs.<br />"+
+	(idx+2).toString()+". Uncompress them directly into your game root folder.<br />";
 };
 
 var createInstructionBody = function(data) {
@@ -157,16 +157,35 @@ var createInstructionBody = function(data) {
 	ret.className += "col-xs-12 content";
 	
 	resource = data["ID"];
-	var instr = data["instr"] ? (data["addDefInstr"] ? defaultInstr(data["ID"],data["version"])+data["instr"]+downloadNote() : data["instr"]) : 
-		defaultInstr(data["ID"],data["version"])+downloadNote();
+	var instr = "";
+	var idx = 0;
+	if (data["deps"]) {
+		idx = data["deps"].length;
+		for(var k = 0; k < idx; k++){ instr += k.toString()+". Install " + data["deps"][k] + ".<br />"; }	
+	}
+	
+	
+	if (data["instr"]){
+		if (data["addDefInstr"]){ instr += defaultInstr(data["ID"],data["version"],idx); idx += 3; }
+		for(var k = 0; k < data["instr"].length; k++){
+			instr += idx.toString()+". "+data["instr"][k] + "<br />";
+			idx += 1;
+		}
+		
+		if (data["notes"]){
+			for(var k = 0; k < data["instr"].length; k++){ instr += "<strong>Note:</strong> "+data["notes"][k] + "<br />"; }
+		}
+		if (data["addDefInstr"]){ instr += downloadNote(); }
+	}
+	else{ instr += defaultInstr(data["ID"],data["version"],idx)+downloadNote(); }
 
 	
 	ret.innerHTML += instr;
 	if (!data["instr"] || data["addDefInstr"]) { 
 		var imgCol = document.createElement("div");
-		imgCol.className += "col-xs-10 col-xs-offset-2";
+		imgCol.className += "col-xs-12 col-md-10 col-md-offset-2";
 		var img = document.createElement("img");
-		img.setAttribute("class","downloadNoteImg");
+		img.className += "downloadNoteImg";
 		img.setAttribute("src","img/downloadNote.png");
 		ret.append(imgCol);
 		imgCol.append(img);
@@ -298,7 +317,7 @@ var showDetailsTab = function(data){
 		
 		for (var i = 0; i < data["img"].length;i++){
 			var imgBody = document.createElement("div");
-			imgBody.className += "col-xs-4";
+			imgBody.className += "col-xs-12 col-md-4";
 			
 			var img = document.createElement("img");
 			img.style.width= "100%";
