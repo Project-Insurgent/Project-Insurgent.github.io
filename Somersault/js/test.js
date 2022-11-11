@@ -294,7 +294,7 @@ var showDetailsTab = function(data){
 		}
 	}
 	
-	headerTab.style["background-image"] =  "url('img/"+currentType+"/"+data["ID"]+"/banner.png')";
+	headerTab.style["background-image"] =  "url('img//"+currentType+"//"+data["ID"]+"//banner.png')";
 };
 
 /*
