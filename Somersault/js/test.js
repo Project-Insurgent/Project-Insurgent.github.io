@@ -140,15 +140,14 @@ function createItemBox(section,data,rowId){
 }
 
 var site = "https://github.com/Project-Insurgent/project-insurgent.github.com/tree/main/Somersault/";
-var resource = "";
 
 var downloadNote = function() {
-	return "<strong>Note:</strong> For getting the zip file, install this <a  class='myLink' href='https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo/33753575#33753575' target=_blank>extension</a>. Then right click on the 'vX.X' directory and click <strong>'gitZip Download'->'Current Folder'</strong>.<br />";
+	return "<strong>Note:</strong> For getting the zip file, install this <a  class='myLink' href='https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo/33753575#33753575' target=_blank>extension</a>. Then right click anywhere on the directory and click <strong>'gitZip Download'->' Current folder - vX.X'</strong>.<br />";
 };
 
-var defaultInstr = function() {
+var defaultInstr = function(resource,version) {
 	return ""+
-	"0. Download this <a class='myLink' href="+site+currentType+'/'+resource+" target=_blank>zip</a>.<br />"+
+	"0. Download this <a class='myLink' href="+site+currentType+'/'+resource+'/'+version+" target=_blank>zip</a>.<br />"+
 	"1. Select all the folders in the zip but the READMEs.<br />"+
 	"2. Uncompress them directly into your game root folder.<br />";
 };
@@ -158,8 +157,8 @@ var createInstructionBody = function(data) {
 	ret.className += "col-xs-12 instructions";
 	
 	resource = data["ID"];
-	var instr = data["instr"] ? (data["addDefInstr"] ? defaultInstr()+data["instr"]+downloadNote() : data["instr"]) : 
-		defaultInstr()+downloadNote();
+	var instr = data["instr"] ? (data["addDefInstr"] ? defaultInstr(data["ID"],data["version"])+data["instr"]+downloadNote() : data["instr"]) : 
+		defaultInstr(data["ID"],data["version"])+downloadNote();
 
 	
 	ret.innerHTML += instr;
@@ -243,6 +242,20 @@ var showDetailsTab = function(data){
 		descRow.append(descBody);
 		dataTab.append(descRow);
 	}
+	
+	var docRow = document.createElement("div");
+	docRow.className += "row detailRow";
+	
+	var docTitle = document.createElement("div");
+	docTitle.className += "col-xs-12 title";
+	docTitle.innerHTML += "Documentation:";
+	
+	var documentation = document.createElement("div");
+	documentation.className += "col-xs-12";
+	documentation.innerHTML += "For the full documentation of this plugin, click <a class='myLink' href="+site+currentType+'/'+data["ID"]+'/'+"README.pdf target=_blank>here</a>";
+	dataTab.append(docRow);
+	docRow.append(docTitle);
+	docRow.append(documentation);
 	
 	if (data["instr"] || data["addDefInstr"]){
 		var instrRow = document.createElement("div");

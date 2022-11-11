@@ -1,15 +1,17 @@
 [
 	{
 		"ID": "SUSc",
+		"version": "v5.1",
 		"name": "Somersault Utilities Script",
 		"subtitle": "Looking kinda SUS",
 		"desc": "This kit comes with quite a bunch of useful methods to use in your own fangames and is mandatory for the rest of my plugins to work.",
-		"longDesc": "This set of scripts are the “brain” of all my other plugins, and hence they all use this kit as the main source of methods and classes. But that does not mean that you cannot use it as a standalone plugin as well. Just the opposite! This kit comes with quite a bunch of useful methods and utilities that you may want to use in your own fangames."
+		"longDesc": "This set of scripts are the “brain” of all my other plugins, and hence they all use this kit as the main source of methods and classes. But that does not mean that you cannot use it as a standalone plugin as well. Just the opposite! This kit comes with quite a bunch of useful methods and utilities that you may want to use in your own fangames. So definitely you need to check them out!"
 	},
 	{
 		"ID": "DPPT_Map",
-		"icon": "LucasDawn.gif",
+		"version": "v2.2",
 		"name": "Sinnoh Map Script",
+		"icon": "LucasDawn.gif",
 		"subtitle": "Created by and for true sinnoh lovers.",
 		"desc": "This plugin implements a nostalgic region map with the style of the classic Diamond and Pearl games. It includes multiscreen options!",
 		"longDesc": "This script will implement for you a fancy gen-4-styled region map, with which you will be able to check not only your current position in game, but also all the places you have already visited. Moreover, you can open a 'Detail View' to read the different descriptions and further information about all the places. But how does it look like? Check the images below!",
