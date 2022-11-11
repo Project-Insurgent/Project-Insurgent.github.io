@@ -181,8 +181,8 @@ var createInstructionBody = function(data) {
 
 var showDetailsTab = function(data){
 	if (data["addDefInstr"] == null ) {data["addDefInstr"] = true;}
-	if (data["deps"] == null){ data["deps"] = []; }
-	data["deps"].unshift("S.A. Somersault");
+	if (data["credits"] == null){ data["credits"] = []; }
+	data["credits"].unshift("S.A. Somersault");
 	
 	
 	var detailsTab = document.createElement("div");
@@ -242,6 +242,20 @@ var showDetailsTab = function(data){
 		descRow.append(descBody);
 		dataTab.append(descRow);
 	}
+	
+	var creditsRow = document.createElement("div");
+	creditsRow.className += "row detailRow";
+	
+	var creditsTitle = document.createElement("div");
+	creditsTitle.className += "col-xs-12 title";
+	creditsTitle.innerHTML += "Credits:";
+	
+	var credits = document.createElement("div");
+	credits.className += "col-xs-12 instructions";
+	for(var k = 0; k < data["credits"].length; k++){ credits.innerHTML += data["credits"][k]+"<br />"; }
+	dataTab.append(creditsRow);
+	creditsRow.append(creditsTitle);
+	creditsRow.append(credits);
 	
 	var docRow = document.createElement("div");
 	docRow.className += "row detailRow";
