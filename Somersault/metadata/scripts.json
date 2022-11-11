@@ -15,7 +15,7 @@
 		"subtitle": "Created by and for true sinnoh lovers.",
 		"desc": "This plugin implements a nostalgic region map with the style of the classic Diamond and Pearl games. It includes multiscreen options!",
 		"longDesc": "This script will implement for you a fancy gen-4-styled region map, with which you will be able to check not only your current position in game, but also all the places you have already visited. Moreover, you can open a 'Detail View' to read the different descriptions and further information about all the places. But how does it look like? Check the images below!",
-		"instr": "3. Next, go inside the folder <strong>“Pictures/Somerscripts/DPPTMap/”</strong> and rename the file “SinnohMap.png” with the name of your actual region. <br /><strong>Note:</strong> if you don’t know the name go to <strong>townmap.txt</strong> and look for <strong>“Filename=[the_name_you_are_looking_for]”</strong><br />",
+		"instr": "3. Next, go inside the folder <strong>“Pictures/Somerscripts/DPPTMap/”</strong> and rename the file “SinnohMap.png” with the name of your actual region. <br /><strong>Note:</strong> if you don’t know the name of the region, go to <strong>townmap.txt</strong> and look for <strong>“Filename=[the_name_you_are_looking_for]”</strong><br />",
 		"img": ["topBg","btmBg","btmBgDetail"]
 	}
 ]
