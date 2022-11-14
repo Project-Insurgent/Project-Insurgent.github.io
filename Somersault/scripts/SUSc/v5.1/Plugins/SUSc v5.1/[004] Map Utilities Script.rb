@@ -59,33 +59,6 @@ $curPortionX  = -1
 $curPortionY  = -1
 $mcPositions  =[]
 #==============================================================================#
-=begin
-    attr_reader :id
-    attr_reader :outdoor_map
-    attr_reader :announce_location
-    attr_reader :can_bicycle
-    attr_reader :always_bicycle
-    attr_reader :teleport_destination
-    attr_reader :weather
-    attr_reader :town_map_position
-    attr_reader :dive_map_id
-    attr_reader :dark_map
-    attr_reader :safari_map
-    attr_reader :snap_edges
-    attr_reader :random_dungeon
-    attr_reader :battle_background
-    attr_reader :wild_battle_BGM
-    attr_reader :trainer_battle_BGM
-    attr_reader :wild_victory_ME
-    attr_reader :trainer_victory_ME
-    attr_reader :wild_capture_ME
-    attr_reader :town_map_size
-    attr_reader :battle_environment
-
-    GameData::MapMetadata.get($game_map.map_id).outdoor_map
-=end
-
-
 module SMapUtil
   def self.getData(id,type=nil)
     #$smMapDataPtrs[MapId] --> MapName
