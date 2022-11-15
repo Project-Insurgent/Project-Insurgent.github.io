@@ -245,6 +245,16 @@ var showDetailsTab = function(data){
 	
 	headerTab.append(container);
 	container.append(title);
+
+	var versRow = document.createElement("div");
+	versRow.className += "row detailRow";
+
+	var versTitle = document.createElement("div");
+	versTitle.className += "col-xs-12 title";
+	versTitle.innerHTML += "Current version: "+data["version"];
+
+	versRow.append(versTitle);
+	dataTab.append(versRow);
 	
 	if (data["longDesc"]){	
 		var descRow = document.createElement("div");
