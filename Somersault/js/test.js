@@ -329,6 +329,7 @@ var showDetailsTab = function(data){
 	}
 	
 	headerTab.style["background-image"] =  "url('img//"+currentType+"//"+data["ID"]+"//banner.png')";
+	window.scrollTo(0,0);
 };
 
 /*
