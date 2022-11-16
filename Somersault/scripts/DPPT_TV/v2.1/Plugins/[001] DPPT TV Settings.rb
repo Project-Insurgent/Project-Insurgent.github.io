@@ -18,27 +18,27 @@ module DPPT_TV
 
     #Array of texts to be displayed
     TEXTS = [
-        # Text a: ---------------------------------------------------------------------------
+        # Text 0: ---------------------------------------------------------------------------
         "\"Welcome to a new episode of <b>'The Good News'</b>! "+
         "Today we have an extraordinary news from Eterna City to share with you!\n\n"+
         "After Gardenia's temporal retirement due to her leg's injury, we can now "+
         "confirm that there will be a new young gym leader that will face aspirants during her absence!",
 
-        # Text b: ---------------------------------------------------------------------------
+        # Text 1: ---------------------------------------------------------------------------
         "\"Good morning, Sinnoh! We couldn't start the day in a better way having the "+
         "great news we have to share with you!\n\n"+
         "Alola's Pokemon League has now officially opened its doors! Who will be crowned "+
         "as the very first Alolan Champion? We will provide you more information "+
         "as the events develop.\"",
 
-        # Text c: ---------------------------------------------------------------------------
+        # Text 2: ---------------------------------------------------------------------------
         "\"As you can see, several space-time deformations are appearing all over "+
         "the tropical region of Alola.\n\n"+
         "Scientists still don't know why they have appeared, or who cre... WAIT A "+
         "SECOND! WHAT'S THAT! Strange creatures are merging from the wormholes!!! Could "+
         "these creatures be Pokémon?\""
         
-        # Text d: You can add more here: ----------------------------------------------------
+        # Text 3: You can add more here: ----------------------------------------------------
         # ...
     ]
 end
