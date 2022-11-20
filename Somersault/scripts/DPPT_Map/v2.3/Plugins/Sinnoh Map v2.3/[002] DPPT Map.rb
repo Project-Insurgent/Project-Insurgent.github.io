@@ -1,5 +1,5 @@
 #==============================================================================#
-#                                  DPPT MAP v2.2                               #
+#                                  DPPT MAP v2.3                               #
 #                               (by S.A.Somersault)                            #
 #==============================================================================#
 # A script that implements a gen 4 style map!                                  #
@@ -44,14 +44,15 @@ class SinnohMapTopScreen < SMSpriteWrapper
   include SMapUtil
 
   def initialize(mod,viewport,ctrl)
-    super({:NAME=>TOWNMAP_NAME,:PATH=>PATH,:CTRL=>ctrl,:VIEWPORT=>viewport})
-    @mod = mod
+    super({:NAME=>mod.getRegionName(),:PATH=>PATH,:CTRL=>ctrl,:VIEWPORT=>viewport})
+    @mod             = mod
     @counter         = 0
     @cursorFrame     = 0
     @minicursorFrame = 0
 
-    addObj("bg",TOWNMAP_NAME)
-    addObj("Loc",TOWNMAP_NAME)
+    regionName = mod.getRegionName
+    addObj("bg",regionName)
+    addObj("Loc",regionName)
 
     #visited location icons:
     locs = @mod.getLocs
@@ -313,12 +314,14 @@ class SinnohMap_Module < SMModule
   include SMapUtil
   def initialize()
     super()
-    @mapData = $smMapData
+    @regionName = SMapUtil.getRegionName
+    @mapData = $smMapData[@regionName]
     data = SMapUtil.getData($game_map.map_id)
     @playerPos = data ? data["OWPos"] : [0,0]
     @cursorPos = @playerPos.clone
     @curLocId  = nil
     @counter = 0
+
     @view = SinnohMapView.new(self)
   end
   
@@ -348,11 +351,12 @@ class SinnohMap_Module < SMModule
     end
   end
 
-  def getLocs;      return @mapData; end
+  def getRegionName;return @regionName; end
+  def getLocs;      return @mapData;    end
   def getDesc;      return @mapData[@curLocId]["Common"]["Desc"] if @mapData[@curLocId]; end
-  def getCurLocId;  return @curLocId;  end
-  def getCursorPos; return @cursorPos; end
-  def getPlayerPos; return @playerPos; end
+  def getCurLocId;  return @curLocId;   end
+  def getCursorPos; return @cursorPos;  end
+  def getPlayerPos; return @playerPos;  end
 end
 #==============================================================================#
 def pbDPPTMap

@@ -18,12 +18,14 @@ var _frames   = 30;
 var currentType = "";
 var vanishCurrentTab = function(){
 	if (this.classList.contains("mainButton")){ currentType = this.id; }
+	var parentContainer = document.getElementById("resourcesContainer");
 	var vanishable = document.getElementsByClassName("vanishable");
 	var i = 0;
 	var opacity = 1.0;
 	var myInterval = setInterval(function(){
-		if (i === _frames){ 
-			for(var k = 0; k < vanishable.length; k++){ vanishable[k].remove(); }
+		if (i === _frames){
+			var vanishableLength =  vanishable.length;
+			for(var k = 0; k < vanishableLength; k++){ parentContainer.removeChild(vanishable[k]); }
 			readJsonMethod(currentType);
 			appearCurrentTab();
 			clearInterval(myInterval);
@@ -70,7 +72,7 @@ function createRow(id){
 	var row = document.createElement("div");
 	row.id = "resourceRow"+id.toString();
 	row.className += "row vanishable";
-	//row.style.display = "block";
+	row.style.display = "block";
 	document.getElementsByClassName("mainContainer")[0].append(row);
 }
 

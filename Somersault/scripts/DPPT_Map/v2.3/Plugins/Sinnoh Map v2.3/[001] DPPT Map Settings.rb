@@ -4,9 +4,6 @@ module SinnohMap
     ID   = "sinnohMap"
     PATH = SUSC::SUSC_PATH+"DPPTMap/"
 
-    # Townmap name (aka file name):
-    TOWNMAP_NAME = "SinnohMap"
-
     # Size of each tile in pixels:
     TILE_SIDE        = 14
     # Width  of the map in tiles:

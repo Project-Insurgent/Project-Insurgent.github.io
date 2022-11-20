@@ -1,17 +1,20 @@
 #==============================================================================#
-#                           MAP UTILITIES SCRIPT v3.0                          #
+#                           MAP UTILITIES SCRIPT v3.2                          #
 #                             (by S.A. Somersault)                             #
 #==============================================================================#
 #  This is an auxiliar one for my scripts that are somehow related with maps.  #
 #==============================================================================#
 # SETTINGS ====================================================================#
+  # File name of the default townmap file (in case the current player position is unknown):
+  TOWNMAP_NAME = "Sinnoh"
+
   # Size of the n last visited positions to be recorded
   MC_STEPS_TRACKED = 4        
-  SHOW_MAP_LOADING_LOG = true
+  SHOW_MAP_LOADING_LOG = false
 
   #lines with the following keys will be saved as they are, keeping commas etc:
   #Note: They all will be saved as strings.
-  STR_DATA_TYPE = [ "Name", "Desc" ]
+  STR_DATA_TYPE = [ "Name", "Desc", "Region", "IndoorMap" ]
 
   #lines with the following keys will be saved as they are, keeping commas etc:
   #Note: They all will be saved as strings.
@@ -27,7 +30,7 @@
   STR_ARRAY_DATA_TYPE   = []
 
   #Similar thing as the previous one but in this case with numbers:
-  NUM_ARRAY_DATA_TYPE   = [ "Pos", "Size", "SecMaps" ]
+  NUM_ARRAY_DATA_TYPE   = [ "OWPos", "SelfPos", "Size", "SecMaps" ]
 
   #Similar thing as the previous one but in this case with Booleans:
   #Possible values: {True, False}
@@ -37,45 +40,56 @@
   #add a key here, then it is mandatory to include it for each map:
   #(tags "Name" and "Id" are special and hence they are not included here)
   DEFAULT_VALUES    = {
-    "Icon" => -1,
-    "Size" => [1,1],
-    "Pos"  => [0,0],
-    "Desc" => "",
+    "Icon"    => -1,
+    "Size"    => [1,1],
+    "OWPos"   => [0,0],
+    "SelfPos" => [0,0],
+    "Desc"    => "",
     "SecMaps" => []
   }
 #==============================================================================#
 #==============================================================================#
 #                              STOP EDITING HERE                               #
 #==============================================================================#
-COMMENT_TOKEN = "##"
-SEPARATOR = "####################"
-SIGNPOSTSPATH = SUSC::SUSC_PATH + "DPPTsignPosts/"
-PBS_SINNOH_PATH = "Plugins/SUSc/sinnohMap.txt"
-$LOCATIONS_ARRAY={}
-$DESC_ARRAY = {}
-$enteredNewMap = true
-$currentMapId = -1
-$curPortionX  = -1
-$curPortionY  = -1
-$mcPositions  =[]
+COMMENT_TOKEN    = "##"
+SIGNPOSTSPATH    = SUSC::SUSC_PATH + "DPPTsignPosts/"
+PBS_SINNOH_PATH  = "Plugins/SUSc/sinnohMap.txt"
+$LOCATIONS_ARRAY = {}
+$DESC_ARRAY      = {}
+$mcPositions     = []
+$enteredNewMap   = true
+$currentMapId    = -1
+$curPortionX     = -1
+$curPortionY     = -1
 #==============================================================================#
 module SMapUtil
   def self.getData(id,type=nil)
     #$smMapDataPtrs[MapId] --> MapName
-    #$smMapData[MapName]: { "Common" => {...}, "Maps" => { map_1, map_2, ... }  }
+    #$smMapData[region][MapName]: { "Common" => {...}, "Maps" => { map_1, map_2, ... }  }
     #where map_i = { "Icon" => N, "Pos" => [X,Y], "Size" => [W,H], "SecMaps" =>[...] }
-    data = $smMapData[$smMapDataPtrs[id]]
-
-    ret = nil
-    if data
-      if data["Maps"][id] #if the id is a mapId
-        #Appends the specific data for that mapId as well as the common one. Also, appends the mapName in order to have the full information about that map:
-        ret = data["Maps"][id].merge(data["Common"]).merge({ "Name" => $smMapDataPtrs[id] })  
-      elsif $smMapData.keys.include?(id) #if the id is a map name
-        ret = data["Maps"]
+    region = self.getRegionName
+    if region
+      data = $smMapData[region][$smMapDataPtrs[id]]
+      ret = nil
+      if data
+        if data["Maps"][id] #if the id is a mapId
+          #Appends the specific data for that mapId as well as the common one. Also, appends the mapName in order to have the full information about that map:
+          ret = data["Maps"][id].merge(data["Common"]).merge({ "Name" => $smMapDataPtrs[id] })  
+        elsif $smMapData[region].keys.include?(id) #if the id is a map name
+          ret = data["Maps"]
+        end
       end
-    end                  
-    return type == nil || ret == nil ? ret : ret[type]
+    end                 
+    return region ? (type == nil || ret == nil ? ret : ret[type]) : nil
+  end
+
+  def self.getRegionName
+    map_metadata = GameData::MapMetadata.try_get($game_map.map_id)
+    playerpos    = map_metadata ? map_metadata.town_map_position : nil
+
+    #$game_map ? pbGetMessage(MessageTypes::RegionNames,$game_map.map_id) : TOWNMAP_NAME
+    #pbLoadTownMapData[!$game_map ? [0,0,0] : GameData::MapMetadata.get($game_map.map_id).town_map_position][0]
+    return pbGetMessage(MessageTypes::RegionNames, playerpos ? playerpos[0] : 0)
   end
 
   def self.pbLoadSMMapData
@@ -88,34 +102,44 @@ module SMapUtil
         line = file.readline()
         curId = -1
         curName = ""
+        curRegion = ""
         while !file.eof?
           if !line.include?(COMMENT_TOKEN) #ignore lines with the comment token
             line = line.tr("\n",'').gsub(": ",":").split(':',-1)
             key  = line[0]
             data = line[1]
 
-            if key == "Name"
+            if key == "Region"
+              curRegion = data
+              $smMapData[curRegion] = {}
+              if $DEBUG and SHOW_MAP_LOADING_LOG
+                str = "==============================="
+                for i in 0...curName.length; str+= "="; end
+                puts("#{str}\n----------[ #{curName.upcase} REGION ]----------\n#{str}")
+              end
+            elsif key == "Name"
               curName = data
-              $smMapData[curName] = {}
-              $smMapData[curName]["Maps"] = {}    #hash with all the maps sharing the same name
-              $smMapData[curName]["Common"] = {}  #common data for all maps with the same name
-              $smMapData[curName]["Common"]["Desc"] = DEFAULT_VALUES["Desc"]
+              $smMapData[curRegion][curName] = {}
+              $smMapData[curRegion][curName]["Maps"] = {}    #hash with all the maps sharing the same name
+              $smMapData[curRegion][curName]["Common"] = {}  #common data for all maps with the same name
+              $smMapData[curRegion][curName]["Common"]["Desc"]   = DEFAULT_VALUES["Desc"]
+              $smMapData[curRegion][curName]["Common"]["Region"] = curRegion 
               puts("\n----------[ Map Name: #{curName.upcase} ]----------") if $DEBUG and SHOW_MAP_LOADING_LOG
             elsif key == "Id"
               curId = data.to_i
               $smMapDataPtrs[curId] = curName
 
               #initializing default values:
-              $smMapData[curName]["Maps"][curId] = DEFAULT_VALUES.clone
-              $smMapData[curName]["Maps"][curId].delete("Desc")
+              $smMapData[curRegion][curName]["Maps"][curId] = DEFAULT_VALUES.clone
+              $smMapData[curRegion][curName]["Maps"][curId].delete("Desc")
               #$smMapData[curName]["Maps"][curId] = {}
               #for key in DEFAULT_VALUES.keys; $smMapData[curName]["Maps"][curId][key] = DEFAULT_VALUES[key] unless key == "Desc"; end
-              puts("   Map id -> #{curId}:")            
+              puts("   Map id -> #{curId}:") if $DEBUG and SHOW_MAP_LOADING_LOG          
             else 
               #inserts the field into the hashmap:
               key = key.gsub("\t","")
               dataRet,str = processMapData(key,data)
-              $smMapData[curName]["Maps"][curId][key] = dataRet.dup
+              $smMapData[curRegion][curName]["Maps"][curId][key] = dataRet.dup
               puts(str) if $DEBUG and SHOW_MAP_LOADING_LOG
             end
           end
@@ -130,31 +154,26 @@ module SMapUtil
     end
 
     #creating pointers for all the map ids in the "Maps" field of a certain mapId:
-    for mapName in $smMapData.keys
-      mapHashMap = {}
-      for mapId in $smMapData[mapName]["Maps"].keys
-        for map in $smMapData[mapName]["Maps"][mapId]["SecMaps"]
-          $smMapDataPtrs[map] = mapName
-          $smMapDataPtrs[mapName] = mapName
-          mapHashMap[map] = {}
-          mapHashMap[map] = $smMapData[mapName]["Maps"][mapId].clone
-          mapHashMap[map].delete("SecMaps")
-          #myMap = $smMapData[mapName]["Maps"][mapId]
-          #for key in myMap.keys; mapHashMap[map][key] = myMap[key] unless key == "SecMaps"; end
-          mapHashMap[map]["Size"] = [1,1]
+    for region in $smMapData.keys
+      for mapName in $smMapData[region].keys
+        mapHashMap = {}
+        for mapId in $smMapData[region][mapName]["Maps"].keys
+          for map in $smMapData[region][mapName]["Maps"][mapId]["SecMaps"]
+            $smMapDataPtrs[map]     = mapName
+            $smMapDataPtrs[mapName] = mapName
+            mapHashMap[map] = {}
+            mapHashMap[map] = $smMapData[region][mapName]["Maps"][mapId].clone
+            mapHashMap[map].delete("SecMaps")
+            #myMap = $smMapData[mapName]["Maps"][mapId]
+            #for key in myMap.keys; mapHashMap[map][key] = myMap[key] unless key == "SecMaps"; end
+            mapHashMap[map]["Size"] = [1,1]
+          end
         end
+        $smMapData[region][mapName]["Maps"] = $smMapData[region][mapName]["Maps"].dup.merge(mapHashMap)
       end
-      $smMapData[mapName]["Maps"] = $smMapData[mapName]["Maps"].dup.merge(mapHashMap)
-      #puts(mapName + ": " + $smMapData[mapName]["Maps"].keys.to_s)
     end
-
-    #create array for tracked coordinates:
-    $mcPositions = []
     $inValidMap = false
-    for i in 0...MC_STEPS_TRACKED; $mcPositions.append([-1,-1]); end
-
     pbUpdLocData
-    
   end
 
   def self.processMapData(key,data)
@@ -243,7 +262,8 @@ module SMapUtil
       for k in 0...(oldInValidMap ? 1 : MC_STEPS_TRACKED)
         $mcPositions[0] = [
           mapData["Pos"][0]+$curPortionX,
-          mapData["Pos"][1]+$curPortionY]
+          mapData["Pos"][1]+$curPortionY
+        ]
       end
     end
   end
@@ -279,16 +299,17 @@ module SMapUtil
     return [newX,newY]
   end
   
-  def self.pbOnLocation?(mapId,pos)
-    data = getData(mapId)
-    return data && pos[0] >= data["Pos"][0] && pos[0] < data["Pos"][0] + data["Size"][0] &&
-                   pos[1] >= data["Pos"][1] && pos[1] < data["Pos"][1] + data["Size"][1]
+  def self.pbOnLocation?(mapData,pos)
+    return mapData && pos[0] >= mapData["OWPos"][0] && pos[0] < mapData["OWPos"][0] + mapData["Size"][0] &&
+                      pos[1] >= mapData["OWPos"][1] && pos[1] < mapData["OWPos"][1] + mapData["Size"][1]
   end
   
   def self.pbGetLocationName(pos)
-    for key in $smMapData.keys
-      for mapId in $smMapData[key]["Maps"].keys
-        return key if pbOnLocation?(mapId,pos)
+    for region in $smMapData.keys
+      for key in $smMapData[region].keys
+        for mapId in $smMapData[region][key]["Maps"].keys
+          return key if pbOnLocation?($smMapData[region][key]["Maps"][mapId],pos)
+        end
       end
     end
     return nil
