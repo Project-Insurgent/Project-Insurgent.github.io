@@ -5,9 +5,6 @@
 #  This is an auxiliar one for my scripts that are somehow related with maps.  #
 #==============================================================================#
 # SETTINGS ====================================================================#
-  # File name of the default townmap file (in case the current player position is unknown):
-  TOWNMAP_NAME = "Sinnoh"
-
   # Size of the n last visited positions to be recorded
   MC_STEPS_TRACKED = 4        
   SHOW_MAP_LOADING_LOG = false
@@ -86,9 +83,6 @@ module SMapUtil
   def self.getRegionName
     map_metadata = GameData::MapMetadata.try_get($game_map.map_id)
     playerpos    = map_metadata ? map_metadata.town_map_position : nil
-
-    #$game_map ? pbGetMessage(MessageTypes::RegionNames,$game_map.map_id) : TOWNMAP_NAME
-    #pbLoadTownMapData[!$game_map ? [0,0,0] : GameData::MapMetadata.get($game_map.map_id).town_map_position][0]
     return pbGetMessage(MessageTypes::RegionNames, playerpos ? playerpos[0] : 0)
   end
 
