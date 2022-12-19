@@ -25,7 +25,7 @@ class DpptTV_View < SMModuleView
   include DPPT_TV
   def initialize(mod,ctrl=nil)
     super({:PATH => PATH, :CTRL => ctrl, :MOD => mod, :ID => ID}) 
-    initBlackScreens
+    initScreens(true)
     
     descText = [40,55,440,_INTL(@mod.getText),TFG_COLOR,TBG_COLOR]
     @panels[:MAIN_PANEL].addObj("bg",@mod.getBgName)

@@ -175,13 +175,12 @@ var createInstructionBody = function(data) {
 		}
 		
 		if (data["notes"]){
-			for(var k = 0; k < data["instr"].length; k++){ instr += "<strong>Note:</strong> "+data["notes"][k] + "<br />"; }
+			for(var k = 0; k < data["notes"].length; k++){ instr += "<strong>Note:</strong> "+data["notes"][k] + "<br />"; }
 		}
 		if (data["addDefInstr"]){ instr += downloadNote(); }
 	}
 	else{ instr += defaultInstr(data["ID"],data["version"],idx)+downloadNote(); }
 
-	
 	ret.innerHTML += instr;
 	if (!data["instr"] || data["addDefInstr"]) { 
 		var imgCol = document.createElement("div");
@@ -202,6 +201,7 @@ var createInstructionBody = function(data) {
 
 var showDetailsTab = function(data){
 	var authorName = "S.A. Somersault";
+	if (data["instr"] == null) {data["instr"] = []; }
 	if (data["addDefInstr"] == null ) {data["addDefInstr"] = true;}
 	if (data["credits"] == null){ data["credits"] = []; }
 	if (data["credits"][0] !== authorName) { data["credits"].unshift(authorName); }

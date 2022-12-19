@@ -1,4 +1,4 @@
-Name         = DPPT TV Script
-Version      = 2.1.0
+Name         = DPPT Map Script
+Version      = 2.4.0
 Requires     = Somersault Utilities Script,5.1
 Credits      = S.A.Somersault

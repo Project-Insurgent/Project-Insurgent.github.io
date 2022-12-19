@@ -1,0 +1,4 @@
+Name         = Chapters Script
+Version      = 3.1.1
+Requires     = Somersault Utilities Script,5.2
+Credits      = S.A.Somersault
