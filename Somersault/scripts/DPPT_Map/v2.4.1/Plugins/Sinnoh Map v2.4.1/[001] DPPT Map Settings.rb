@@ -4,6 +4,13 @@ module SinnohMap
     ID   = "sinnohMap"
     PATH = SUSC::SUSC_PATH+"DPPTMap/"
 
+    # Names of the face icon files to use:
+    ICON_NAME_M = "iconM"
+    ICON_NAME_F = "iconF"            
+    # Frequency of the minicursor in frames:
+    MC_MOVEMENT_TIME = 20
+
+    #TOP SCREEN SETTINGS:
     # Size of each tile in pixels:
     TILE_SIDE        = 14
     # Width  of the map in tiles:
@@ -12,18 +19,13 @@ module SinnohMap
     MAP_HEIGHT_TILES = 23             
 
     #MARGINS:
-    # Left margin of the map in tiles (aka size in tiles of the left border of the map not to be taken into account):
+    # Left and right margins of the map in tiles
+    #(aka size in tiles of the left and right borders of the map not to be taken into account):
     X_MARGIN = 3
-    # Top  margin of the map in tiles (aka size in tiles of the top border of the map not to be taken into account):
+    # Top and bottom margin of the map in tiles
+    #(aka size in tiles of the top and bottom borders of the map not to be taken into account):
     Y_MARGIN = 0
 
-    # Names of the face icon files to use:
-    ICON_NAME_M = "iconM"
-    ICON_NAME_F = "iconF"            
-    # Frequency of the minicursor in frames:
-    MC_MOVEMENT_TIME = 20
-
-    #TOP SCREEN SETTINGS:
     # Location text colors:
     LOC_NAME_FG_COLOR = Color.new( 87, 87, 87)
     LOC_NAME_BG_COLOR = Color.new(180,180,180)
@@ -48,6 +50,15 @@ module SinnohMap
     LOC_NAME_Y = 340
 
     #BOTTOM SCREEN SETTINGS:
+    # Size of the tiles in the bottom map graphic:
+    BTM_TILE_SIDE = 16
+
+    #MARGINS:
+    # Left and right margins of the bottom map in tiles
+    BTM_X_MARGIN = 8
+    # Top and bottom margin of the bottom map in tiles
+    BTM_Y_MARGIN = 6
+
     # Text to be displayed on the top part of the bottom screen:
     TAG_TEXT = "GUIDE MAP"
     # Location of the "TAG_TEXT" tag:
