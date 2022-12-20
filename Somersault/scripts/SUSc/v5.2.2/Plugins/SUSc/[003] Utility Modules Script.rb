@@ -11,14 +11,16 @@ class ScrManager < SMSpriteWrapper
       @screens[i] = st = SCR_SETTINGS[MULTI_SCREEN ? i : :MAIN_PANEL].clone
       addEmpty(i,@path,Viewport.new(st[0],st[1],st[2],st[3]))
       updatePanel(list[i],i)
-      #list[i].visible = (i == :MAIN_PANEL || MULTI_SCREEN)
-    end#if i == :MAIN_PANEL || MULTI_SCREEN; end
+    end
+    @multiScreen = MULTI_SCREEN
   end
   
   def setX(screen,x); @screens[screen][0] = x; end
   def setY(screen,y); @screens[screen][1] = y; end
   def setWidth(screen,w);  @screens[screen][0] = w; end
   def setHeight(screen,h); @screens[screen][0] = h; end
+  def setMultiScreen(val); @multiScreen = val; end
+  def getMultiScreen; return @multiScreen; end
   def getScreens(screen=nil); return screen ? @screens[screen] : @screens; end
 
   def updateScreen(screen);

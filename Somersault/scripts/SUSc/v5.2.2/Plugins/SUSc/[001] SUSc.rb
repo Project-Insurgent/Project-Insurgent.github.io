@@ -6,7 +6,7 @@
 #==============================================================================#
 module SUSC
   # turn on only if you have installed KleinStudio's Xtransceiver script.
-  XTRANSCEIVERADDED = false
+  XTRANSCEIVERADDED = true
 
   # folder inside which to place all my scripts graphics
   SUSC_PATH = "Graphics/Somerscripts/"
