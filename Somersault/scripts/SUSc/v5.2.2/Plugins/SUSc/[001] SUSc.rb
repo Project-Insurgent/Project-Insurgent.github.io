@@ -1,5 +1,5 @@
 #==============================================================================#
-#                      SOMERSAULT'S UTILITIES SCRIPT v5.2.1                    #
+#                      SOMERSAULT'S UTILITIES SCRIPT v5.2.2                    #
 #                              Give credit if used                             #
 #==============================================================================#
 # Several small functions to handle my other scripts and/or to use as standalone

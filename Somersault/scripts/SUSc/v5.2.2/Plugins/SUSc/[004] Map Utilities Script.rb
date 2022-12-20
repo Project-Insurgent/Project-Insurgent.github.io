@@ -1,5 +1,5 @@
 #==============================================================================#
-#                           MAP UTILITIES SCRIPT v3.2                          #
+#                          MAP UTILITIES SCRIPT v3.2.1                         #
 #                             (by S.A. Somersault)                             #
 #==============================================================================#
 #  This is an auxiliar one for my scripts that are somehow related with maps.  #
@@ -55,29 +55,32 @@ $LOCATIONS_ARRAY = {}
 $DESC_ARRAY      = {}
 $mcPositions     = []
 $enteredNewMap   = true
+$loadedData      = false
 $currentMapId    = -1
 $curPortionX     = -1
 $curPortionY     = -1
 #==============================================================================#
 module SMapUtil
   def self.getData(id,type=nil)
-    #$smMapDataPtrs[MapId] --> MapName
-    #$smMapData[region][MapName]: { "Common" => {...}, "Maps" => { map_1, map_2, ... }  }
-    #where map_i = { "Icon" => N, "Pos" => [X,Y], "Size" => [W,H], "SecMaps" =>[...] }
-    region = self.getRegionName
-    if region
-      data = $smMapData[region][$smMapDataPtrs[id]]
-      ret = nil
-      if data
-        if data["Maps"][id] #if the id is a mapId
-          #Appends the specific data for that mapId as well as the common one. Also, appends the mapName in order to have the full information about that map:
-          ret = data["Maps"][id].merge(data["Common"]).merge({ "Name" => $smMapDataPtrs[id] })  
-        elsif $smMapData[region].keys.include?(id) #if the id is a map name
-          ret = data["Maps"]
+    begin
+      #$smMapDataPtrs[MapId] --> MapName
+      #$smMapData[region][MapName]: { "Common" => {...}, "Maps" => { map_1, map_2, ... }  }
+      #where map_i = { "Icon" => N, "Pos" => [X,Y], "Size" => [W,H], "SecMaps" =>[...] }
+      region = self.getRegionName
+      if region
+        data = $smMapData[region][$smMapDataPtrs[id]]
+        ret = nil
+        if data
+          if data["Maps"][id] #if the id is a mapId
+            #Appends the specific data for that mapId as well as the common one. Also, appends the mapName in order to have the full information about that map:
+            ret = data["Maps"][id].merge(data["Common"]).merge({ "Name" => $smMapDataPtrs[id] })  
+          elsif $smMapData[region].keys.include?(id) #if the id is a map name
+            ret = data["Maps"]
+          end
         end
-      end
-    end                 
-    return region ? (type == nil || ret == nil ? ret : ret[type]) : nil
+      end                 
+      return region ? (type == nil || ret == nil ? ret : ret[type]) : nil
+    rescue; puts("There was an error while trying to retrieve the data. Make sure you have updated SinnohMap.txt with fields for the current region and map.\n"); return nil; end
   end
 
   def self.getRegionName
@@ -109,7 +112,7 @@ module SMapUtil
               if $DEBUG and SHOW_MAP_LOADING_LOG
                 str = "==============================="
                 for i in 0...curName.length; str+= "="; end
-                puts("#{str}\n----------[ #{curName.upcase} REGION ]----------\n#{str}")
+                puts("#{str}\n----------[ #{curRegion.upcase} REGION ]----------\n#{str}")
               end
             elsif key == "Name"
               curName = data
@@ -167,6 +170,7 @@ module SMapUtil
       end
     end
     $inValidMap = false
+    $loadedData = true
     pbUpdLocData
   end
 
@@ -334,6 +338,7 @@ class PokemonLoadScreen
 end
 
 Events.onStepTaken += proc do;
+  SMapUtil.pbLoadSMMapData if !$loadedData
   SMapUtil.pbUpdLocData if SMapUtil.pbCheckChangingPortions;
 end
 #===============================================================================
