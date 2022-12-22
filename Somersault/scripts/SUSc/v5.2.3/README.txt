@@ -1,5 +1,5 @@
 Name         = Somersault Utilities Script
-Version      = 5.1.0
+Version      = 5.2.3
 Credits      = S. A. Somersault
 
 ## How to install this script: ##

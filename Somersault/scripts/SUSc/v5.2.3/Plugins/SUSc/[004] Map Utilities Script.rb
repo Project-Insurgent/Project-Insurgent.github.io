@@ -1,5 +1,5 @@
 #==============================================================================#
-#                          MAP UTILITIES SCRIPT v3.2.1                         #
+#                          MAP UTILITIES SCRIPT v3.2.2                         #
 #                             (by S.A. Somersault)                             #
 #==============================================================================#
 #  This is an auxiliar one for my scripts that are somehow related with maps.  #
@@ -338,8 +338,10 @@ class PokemonLoadScreen
 end
 
 Events.onStepTaken += proc do;
-  SMapUtil.pbLoadSMMapData if !$loadedData
-  SMapUtil.pbUpdLocData if SMapUtil.pbCheckChangingPortions;
+	if ACTIVATE_MAP_UTILITIES
+		SMapUtil.pbLoadSMMapData if !$loadedData
+		SMapUtil.pbUpdLocData if SMapUtil.pbCheckChangingPortions;
+	end
 end
 #===============================================================================
 $Fog_frame_counter = 0
