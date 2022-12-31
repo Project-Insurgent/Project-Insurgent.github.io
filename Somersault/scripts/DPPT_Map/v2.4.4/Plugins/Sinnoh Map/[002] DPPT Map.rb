@@ -3,7 +3,7 @@
 #                               (by S.A.Somersault)                            #
 #==============================================================================#
 # A script that implements a gen 4 style map!                                  #
-# IMPORTANT: NEEDS SUSc v5.2+ in order to work properly                        #
+# IMPORTANT: NEEDS SUSc v5.2.4+ in order to work properly                      #
 #==============================================================================#
 # Future features:
 # -Fly destination mode
@@ -35,7 +35,7 @@ module SMapUtil
     end
   end
 end
-Events.onStepTaken += proc do; SMapUtil.pbUpdateMapPosTrack if ACTIVATE_MAP_UTILITIES; end
+Events.onStepTaken += proc do; SMapUtil.pbUpdateMapPosTrack if SUSC::ACTIVATE_MAP_UTILITIES; end
 #==============================================================================#
 #                                TOP SCREEN MODULE                             #
 #==============================================================================#
