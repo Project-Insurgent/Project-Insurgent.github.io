@@ -6,7 +6,7 @@
 #==============================================================================#
 module SUSC
   # turn on only if you have installed KleinStudio's Xtransceiver script.
-  XTRANSCEIVERADDED = true
+  XTRANSCEIVERADDED = false
 
   #Whether to use map utilities features or not:
   ACTIVATE_MAP_UTILITIES = false
@@ -17,7 +17,7 @@ module SUSC
   # Whether to display panels as a multiple-screen system or not.
   # true  -> panels will be displayed as defined below;
   # false -> all my other scripts will run in "single-panel" mode
-  MULTI_SCREEN = true 
+  MULTI_SCREEN = false
 
   # settings of the different frames or "screens" to be added
   SCR_SETTINGS = {
