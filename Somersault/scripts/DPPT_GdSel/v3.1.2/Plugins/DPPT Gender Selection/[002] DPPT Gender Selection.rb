@@ -1,5 +1,5 @@
 #==============================================================================#
-#                         DPPT GENDER SELECTOR SCENE v3.1.1                    #
+#                         DPPT GENDER SELECTOR SCENE v3.1.2                    #
 #                                (by S.A.Somersault)                           #
 #==============================================================================#
 # Gender selection screen in the purest DPPT style!                            #
@@ -23,7 +23,7 @@ class DpptGdSel_View < SMModuleView
   def initialize(mod,ctrl=nil)
     super({:PATH=>PATH,:MOD=>mod,:CTRL=>ctrl,:ID=>ID})
     @spriteViewport = $scrManager.list[:MAIN_PANEL].viewport
-    initScreen(:MAIN_PANEL)
+    initScreen(:MAIN_PANEL,false)
 
     #FEMALE TRAINER    
     @panels[:MAIN_PANEL].addObj("girl",GENDERFEMALE,FEMALEX,FEMALEY,PATH)
