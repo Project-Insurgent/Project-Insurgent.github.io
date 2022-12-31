@@ -4,20 +4,20 @@ module DPPTGenderSel
     ID = "GenderSel"
 
     # name of the female graphic.
-    GENDERFEMALE = "Rebel"
+    GENDERFEMALE = "Dawn"
     # name of the male graphic.
-    GENDERMALE   = "Rogue"       
+    GENDERMALE   = "Lucas"       
 
     # whether the walking animation will be played
     ANIMATED = true              
 
     # width and height of each Male frame 
-    FRAMEWIDTH_M = 47
-    FRAMEHEIGHT_M = 109            
+    FRAMEWIDTH_M = 52
+    FRAMEHEIGHT_M = 110            
 
     # width and height of each Female frame
     FRAMEWIDTH_F = 52                        
-    FRAMEHEIGHT_F = 110            
+    FRAMEHEIGHT_F = 114            
 
     # number of frames in the animation
     NUMFRAMES = 6
