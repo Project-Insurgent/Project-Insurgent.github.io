@@ -1,6 +1,6 @@
 Name         = DPPT Gender Selection Script
-Version      = 3.1.0
-Requires     = Somersault Utilities Script,5.1
+Version      = 3.1.2
+Requires     = Somersault Utilities Script,5.2.4
 Credits      = S.A.Somersault
 
 ## How to install this script:##
@@ -17,6 +17,8 @@ Credits      = S.A.Somersault
 #==============================================================================#
 # Usage: pbDpptGdSelector                                                      #
 #==============================================================================#
+# Note: you can customize a lot of parameters through the file "[001] GdSelSettings.rb"
+#
 # You must know that the script doesn't provide a background, though.
 #
 # You can also make an animated selector: you only have to make each graphic
