@@ -101,7 +101,7 @@ class SMModuleView < SMSpriteWrapper
     newVP.z = 99999 if createNewVp
     addBlackBg(screen,@path,newVP)
     @panels[screen].fitSpriteInViewport()
-    @panels[screen].clear if !(MULTI_SCREEN && blackBg)
+    @panels[screen].clear if screen != :MAIN_PANEL && (!MULTI_SCREEN || !blackBg)
     $scrManager.addPanel(screen,@id,@panels[screen])
   end
   

@@ -18,11 +18,11 @@ module SMChapters
     TIME_TO_TEXT   = 60           
 
     # Duration of the text fade in
-    FADE_IN_TEXT   = 40
+    FADE_IN_TEXT   = 80
     # Duration of the text screen time
-    TEXT_DURATION  = 150
+    TEXT_DURATION  = 180
     # Duration of the text fade out
-    FADE_OUT_TEXT  = 50           
+    FADE_OUT_TEXT  = 60           
 
     # Time lapse before the black screen vanishes
     TIME_TO_FADEOUT= 100 

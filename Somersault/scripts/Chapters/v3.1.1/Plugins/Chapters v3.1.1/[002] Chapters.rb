@@ -30,7 +30,7 @@ class ChaptersView < SMModuleView
     initScreens(true)
 
     @panels[:MAIN_PANEL].addObj("title","Chapter#{@mod.getChap}")
-    @panels[:MAIN_PANEL].list["title"].z=-1
+    @panels[:MAIN_PANEL].list["title"].z-=1
     
     for k in @panels.keys; @panels[k].opacity = 0; end
     pbMEPlay(ME_FILE,ME_VOLUME,ME_PITCH) if ME_ON
