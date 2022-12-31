@@ -93,15 +93,15 @@ class SMModuleView < SMSpriteWrapper
     $scrManager.addPanel(screen,@id,@panels[screen])
   end
 
-  def initScreens(blScreens=false); for key in $scrManager.list.keys; initScreen(key,blScreens); end; end
+  def initScreens(blScreens=true); for key in $scrManager.list.keys; initScreen(key,blScreens); end; end
   
-  def initScreen(screen,blackBg=false,createNewVp=true)
+  def initScreen(screen,blackBg=true,createNewVp=true)
     vp  = $scrManager.list[screen].viewport
     newVP = createNewVp ? Viewport.new(vp.rect.x,vp.rect.y,vp.rect.width,vp.rect.height) : vp
     newVP.z = 99999 if createNewVp
     addBlackBg(screen,@path,newVP)
     @panels[screen].fitSpriteInViewport()
-    @panels[screen].clear if screen != :MAIN_PANEL && (!MULTI_SCREEN || !blackBg)
+    @panels[screen].clear if (screen != :MAIN_PANEL && !MULTI_SCREEN) || !blackBg
     $scrManager.addPanel(screen,@id,@panels[screen])
   end
   

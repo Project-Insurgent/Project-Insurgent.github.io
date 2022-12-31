@@ -1,7 +1,7 @@
 [
 	{
 		"ID": "SUSc",
-		"version": "v5.2.3",
+		"version": "v5.2.4",
 		"name": "Somersault Utilities Scripts",
 		"subtitle": "Looking kinda SUS",
 		"desc": "This kit comes with quite a bunch of useful methods to use in your own fangames and is mandatory for the rest of my plugins to work.",
@@ -9,7 +9,7 @@
 	},
 	{
 		"ID": "DPPT_Map",
-		"version": "v2.4.3",
+		"version": "v2.4.4",
 		"name": "Sinnoh Map Script",
 		"icon": "LucasDawn.gif",
 		"subtitle": "Created by and for true sinnoh lovers.",
@@ -44,7 +44,7 @@
 	},
 	{
 		"ID": "DPPT_GdSel",
-		"version": "v3.1",
+		"version": "v3.1.1",
 		"name": "DPPT Gender Selector",
 		"icon": "icon.png",
 		"subtitle": "Created by and for true sinnoh lovers.",

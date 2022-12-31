@@ -1,5 +1,5 @@
 #==============================================================================#
-#                                 DPPT MAP v2.4.3                              #
+#                                 DPPT MAP v2.4.4                              #
 #                               (by S.A.Somersault)                            #
 #==============================================================================#
 # A script that implements a gen 4 style map!                                  #
@@ -219,7 +219,8 @@ class SinnohMapBtmScreen < SMSpriteWrapper
 
   def activate; 
     self.visible = true
-    update();
+    @objectsList["detMap"].visible = false
+    #update();
   end
   
   def update
@@ -297,8 +298,8 @@ class SinnohMapView < SMModuleView
   def activate
     super()
     @panels[:MAIN_PANEL].activate
-    @panels[:SECN_PANEL].activate
     @panels[:SECN_PANEL].visible = MULTI_SCREEN
+    @panels[:SECN_PANEL].activate
   end
 
   def init; activate(); end

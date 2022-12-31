@@ -1,5 +1,5 @@
 #==============================================================================#
-#                      SOMERSAULT'S UTILITIES SCRIPT v5.2.3                    #
+#                      SOMERSAULT'S UTILITIES SCRIPT v5.2.4                    #
 #                              Give credit if used                             #
 #==============================================================================#
 # Several small functions to handle my other scripts and/or to use as standalone
@@ -17,7 +17,7 @@ module SUSC
   # Whether to display panels as a multiple-screen system or not.
   # true  -> panels will be displayed as defined below;
   # false -> all my other scripts will run in "single-panel" mode
-  MULTI_SCREEN = false 
+  MULTI_SCREEN = true 
 
   # settings of the different frames or "screens" to be added
   SCR_SETTINGS = {
