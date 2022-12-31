@@ -89,8 +89,8 @@ class SMModuleView < SMSpriteWrapper
       @panels[screen].visible = false
       @panels.delete(screen)
     end
-    @panels[screen] = obj
-    $scrManager.addPanel(screen,@id,@panels[screen])
+    
+    @panels[screen] = $scrManager.addPanel(screen,@id,obj)
   end
 
   def initScreens(blScreens=true); for key in $scrManager.list.keys; initScreen(key,blScreens); end; end

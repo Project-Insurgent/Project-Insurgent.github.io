@@ -1,4 +1,4 @@
 Name         = DPPT Gender Selection Script
-Version      = 3.1.1
-Requires     = Somersault Utilities Script,5.2
+Version      = 3.1.2
+Requires     = Somersault Utilities Script,5.2.4
 Credits      = S.A.Somersault
