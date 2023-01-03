@@ -1,0 +1,512 @@
+## See the documentation pdf of DPPT Map script for the exact format. You can find it here:
+## https://project-insurgent.github.io/Somersault/Index.html
+####################
+Region: Sinnoh
+####################
+Name: Savir Town
+Id: 7
+	Icon: 8
+	OWPos: 10,9
+	SecMaps: 8,9,10,11
+Desc: A new, cold town at the north of Sinnoh. It's just perfect either just as a save place to live in or even for starting a new journey.
+####################
+Name: Route 200
+Id: 12
+	OWPos: 9,9
+Desc: A small route that connects lots of places.
+####################
+Name: Amberia Town
+Id: 13
+	Icon: 1
+	OWPos: 7,9
+	Size: 2,1
+	SecMaps: 15,17,18
+Id: 14
+	OWPos: 7,9
+	Size: 2,1
+Id: 16
+	OWPos: 7,9
+	SelfPos: 0,0
+	IndoorMap: pkmnCenter
+Desc: A big town near Avalugg beach. This metropoly might seem cold, but their citizens have a warm heart. This is also the workplace of professor Rowan's succesor.
+####################
+Name: Route 231
+Id: 19
+	OWPos: 9,10
+Desc: A path through a chateau that may not be very easy to get through for new trainers.
+####################
+Name: Neorite City
+Id: 70
+	OWPos: 8,21
+	Size: 2,2
+	SecMaps: 71,72,73,74
+Id: 103
+	OWPos: 8,21
+	Size: 2,2
+Id: 104
+	OWPos: 8,21
+	Size: 2,2
+Id: 105
+	OWPos: 8,21
+	Size: 2,2
+Id: 106
+	OWPos: 8,21
+	Size: 2,2
+Desc: A modern city under construction that is expected to grow more than Jubilife. The project expects to build futuristic, ecological buildings that do not contaminate any bit. This is also where a new gym is located.
+####################
+Name: _HIDDEN NAME_
+Id: 9998
+	Icon: 8
+	OWPos: 14,22
+	SecMaps: 78,79,80,81,82
+####################
+Name: Route 233
+Id: 75
+	OWPos: 10,22
+	Size: 2,1
+####################
+Name: Route 234
+Id: 76
+	Icon: 8
+	OWPos: 12,22
+	Size: 2,1
+####################
+Name: Route 232
+Id: 68
+	OWPos: 6,21
+	Size: 2,1
+####################
+Name: Twinleaf Town
+Id: 9997
+	Icon: 8
+	OWPos: 3,22
+Desc: A small town with the fresh scent of new leaves in the air. It feels like a place where adventures start. Your own home and your best friend's house are located here.
+####################
+Name: Route 201
+Id: 9996
+	OWPos: 2,21
+	Size: 3,1
+Desc: A small path through a lush, green, wooded area. The densely grown trees give off a thick aroma.
+####################
+Name: Lake Verity
+Id: 10000
+	OWPos: 1,20
+	Size: 2,2
+Desc: One of the lakes that is symbolic of the water-rich Sinnoh region. There is an odd legend associated with it. It is possible to enter the cave underneath the lake from the island in the middle.
+####################
+Name: Sandgem Town
+Id: 63
+	Icon: 8
+	OWPos: 5,21
+	SecMaps: 64,65,66,67
+Desc: A sandy town that is located right next to a beach. It is redolent with the salty scent of the sea. Prof. Rowan's lab is the town's landmark. He conducts his studies on Pokémon here.
+####################
+Name: Route 202
+Id: 62
+	OWPos: 5,20
+Desc: A winding path that twists through grassy fields. Young Trainers like to test their battle skills here.
+####################
+Name: Jubilife City
+Id: 43
+	Icon: 3
+	OWPos: 4,18
+	Size: 2,2
+	SecMaps: 44,45,46,47,48,49,50,51,52
+Desc: The most modernized city in the Sinnoh region. It is bustling with people on the go. The Pokétch Company, the developer and manufacturer of the Pokétch, is located here. Jubilife TV, Sinnoh's TV network, is located here. It is an entertaining place to visit. Project Insurgent's Office Building is located here. Located here is the Trainers' School.
+####################
+Name: Route 203
+Id: 53
+	OWPos: 6,18
+	Size: 2,1
+Desc: Despite being so close to a big town, this path retains its relaxed, natural atmosphere. Once one gets through the tunnel, the city of Oreburgh is just a stone's throw away.
+####################
+Name: Oreburgh Gate
+Id: 54
+	OWPos: 7,18
+Desc: Once one gets through the tunnel, the city of Oreburgh is just a stone's throw away.
+####################
+Name: Oreburgh City
+Id: 55
+	Icon: 5
+	OWPos: 8,18
+	Size: 2,2
+	SecMaps: 56,57,58,59,60,61
+Desc: A vibrant and energetic mining town that is blessed with a precious natural resource. There is a Gym where mine workers take breaks in between their exhausting work shifts. There is a museum that specializes in exhibits related to the town's coal mine. Huge deposits of coal still sleep underneath the ground. The entrance to the Oreburgh Mine is here.
+####################
+Name: Route 204
+Id: 41
+	OWPos: 5,16
+	Size: 1,2
+	SecMaps: 42
+Desc: A charming natural path that wanders past many ponds and groves of trees. The Ravaged Path was hewn through a rocky outcropping. It is a shortcut that leads straight to Floaroma Town.
+####################
+Name: Floaroma Town
+Id: 35
+	Icon: 10
+	OWPos: 5,14
+	Size: 1,2
+	SecMaps: 37,38,39,40
+Desc: A town of flower lovers, Floaroma Town is always perfumed with the sweet scent of flowers. A short, floral pathway opens up to a sprawling sea of flowers in bloom. In the center of town is the flower shop called Pick a Peck of Colors.
+####################
+Name: Floaroma Meadow
+Id: 36
+	OWPos: 5,13
+####################
+Name: Fuego Ironworks
+Id: 31
+	OWPos: 5,13
+	SecMaps: 32
+Desc: The sprawling ironworks is located with the forest at its back. The ironworks refines iron ore mined from Mt. Coronet to make iron and to manufacture mechanical parts.
+####################
+Name: Valley Windworks
+Id: 33
+	OWPos: 7,15
+	SecMaps: 34
+Desc: Numerous wind turbines stand in the vicinity of the Valley Windworks. Winds blowing through the canyon feed the wind turbines to generate clean electricity.
+####################
+Name: Route 205
+Id: 28
+	OWPos: 6,13
+	Size: 1,3
+	SecMaps: 30
+Id: 29
+	OWPos: 8,11
+Desc: A quietly following stream and hilly terrain with one-way ledges make this a fun area for adventure. Near the entrance of the Eterna Forest is a cabin whose keepers offer rest to weary travelers that stop by. A wide, wooden walkway spans a large pond. Fishermen idle their time away dangling lines from the walkway.
+####################
+Name: Eterna Forest
+Id: 26
+	OWPos: 6,11
+	Size: 2,2
+Id: 27
+	OWPos: 6,11
+	Size: 2,2
+####################
+Name: Eterna City
+Id: 20
+	Icon: 4
+	OWPos: 9,11
+	Size: 2,2
+	SecMaps: 21,22,23,24
+Desc: An old city that shows fading and almost-forgotten vestiges of ancient history. A Gym is indispensable in any town that has many people coming and going. This city is no exception. The Cycle Shop is located here. A statue of an ancient Pokémon is prominently and reverently displayed.
+####################
+Name: Route 211
+Id: 25
+	OWPos: 11,11
+Id: 9995
+	OWPos: 13,11
+Desc: A mountain path that tunnels through Mt. Coronet, one of the tallest mountains in Sinnoh.
+####################
+Name: Route 206
+Id: 100
+	OWPos: 9,13
+	Size: 1,2
+Id: 101
+	OWPos: 9,15
+	Size: 1,2
+Desc: Smoothly paved in asphalt, the Cycling Road is heavenly for bicycle lovers. Below the Cycling Road, one can see the entrance to Wayward Cave.
+####################
+Name: Route 207
+Id: 99
+	OWPos: 9,17
+	Size: 2,1
+Desc: Located at the foot of Mt. Coronet, this road is carved into the rugged, rocky terrain.
+####################
+Name: Route 208
+Id: 94
+	OWPos: 12,17
+	Size: 2,1
+	SecMaps: 95
+Desc: A lush field of grass spreads from Mt. Coronet's sheer rock face, creating a vista of contrasts. The Berry Master, an old man who loves nature, Pokémon, and Berries, makes his home here.
+####################
+Name: Hearthome City
+Id: 88
+	Icon: 3
+	OWPos: 14,16
+	Size: 2,2
+	SecMaps: 89,90,91,92,93
+Desc: This friendly city started as a place where people and Pokémon gathered, then grew into a center of commerce. If you care about the looks of your Pokémon, head for the Contest Hall. For toughness, go to the Gym. The entrance to Amity Square is here. There is a building here that is symbolic of the city's status as a place where different cultures meet.
+####################
+Name: Route 209
+Id: 9994
+	OWPos: 17,16
+Id: 9993
+	OWPos: 16,17
+	Size: 2,1
+Desc: The streams forded by this path wind past copses and grassy patches in a serene and soothing manner. The Lost Tower is where Pokémon are laid to rest when their lives come to an end.
+####################
+Name: Solaceon Town
+Id: 9992
+	Icon: 9
+	OWPos: 17,15
+	Size: 2,1
+Desc: The temperate climate makes this town a relaxed and casual place for people and Pokémon to live in. There is a Pokémon Day Care and a Pokémon Center here. Beyond a path hemmed by stands of trees, one can find the entrance to the Solaceon Ruins.
+####################
+Name: Route 210
+Id: 99920
+	OWPos: 15,11
+	Size: 3,1
+Id: 99910
+	OWPos: 17,12
+	Size: 1,3
+Desc: This narrow route is lined with deep, tall grass that tickles the noses of people straying off the path. The Cafe Cabin stands in a wood. The house special is freshly milked Moomoo Milk. A canyon covered by untamed fog. It is always shrouded by a dense fog. Grandma Wilma's house stands alone in an isolated spot deep among the mountains.
+####################
+Name: Route 215
+Id: 9990
+	OWPos: 18,13
+	Size: 3,1
+Desc: This area is always inundated by heavy rainfall. Only hardy Trainers that can take the rain gather here.
+####################
+Name: Veilstone City
+Id: 9989
+	Icon: 3
+	OWPos: 21,13
+	Size: 2,2
+Desc: This city was made by carving out steep, rocky mountains. Its isolation limits its contact with other cities. Naturally, one can find a Gym here. At the highest point in the city is Team Galactic's headquarters. There are warehouses for storing a variety of goods. There is also a major department store.
+####################
+Name: Route 214
+Id: 9988
+	OWPos: 22,15
+	Size: 1,3
+Desc: The road joining Veilstone City and a lake is described as either "wildly natural" or simply "a mess." There is a cave hewn into the sheer rock wall at the roadside. The hole was made by a Ruin Maniac.
+####################
+Name: Lake Valor
+Id: 9987
+	OWPos: 21,18
+	Size: 2,2
+Desc: One of the lakes that is symbolic of the water-rich Sinnoh Region. There is an odd legend associated with it. A high-class restaurant is located on a hill overlooking the lake.
+####################
+Name: Route 213
+Id: 9986
+	OWPos: 20,21
+	Size: 3,1
+Desc: Offshore boulders form a jetty that becalms waves reaching the beach. A resort hotel overlooks the water. In a small house on the beach lives a single man who refers to himself as Dr. Footstep.
+####################
+Name: Valor Lakefront
+Id: 9985
+	OWPos: 20,20
+	Size: 3,1
+Desc: One of the lakes that is symbolic of the water-rich Sinnoh Region. There is an odd legend associated with it. A high-class restaurant is located on a hill overlooking the lake.
+####################
+Name: Pastoria City
+Id: 9984
+	Icon: 3
+	OWPos: 18,20
+	Size: 2,2
+Desc: This city was originally founded to protect the Great Marsh. It has grown naturally over the years. The Gym is a good example of the abundant water resources available to the city. There is a lookout that affords views of the Great Marsh. The gates to the Safari Zone are also here.
+####################
+Name: Route 212
+Id: 83
+	OWPos: 14,18
+	Size: 1,2
+	SecMaps: 86,87
+Id: 84
+	OWPos: 14,20
+	Size: 2,2
+Id: 85:
+	OWPos: 16,21
+	Size:2,1
+Desc: A tall, sturdy wall surrounds an expansive estate that takes up nearly half of the road space. Beyond the wall, one can see the stately Pokémon Mansion and the owner's prized garden behind it. This path weaves among deep puddles made by the unending rainfall. It is wet and miserable for Trainers. There is a house here whose residents offer tutor moves to your Pokémon for Red, Blue, Yellow, or Green Shards.
+####################
+Name: Celestic Town
+Id: 9983
+	Icon: 8
+	OWPos: 14,11
+Desc: A tiny town that preserves the history of Sinnoh and the old ways of life. In the center of the town is a small shrine that dates to ancient times.
+####################
+Name: Route 216
+Id: 9982
+	OWPos: 9,7
+	Size: 3,1
+Id: 9981
+	OWPos: 9,8
+Desc: This mountainous road leads from Mt. Coronet. Its constant snowfall and deep snowdrifts impede travelers.
+####################
+Name: Route 217
+Id: 9980
+	OWPos: 9,3
+	Size: 1,4
+Desc: Snow blows down from Mt. Coronet and grows into a harsh, ceaseless blizzard. Be prepared for the worst.
+####################
+Name: Lake Aquity
+Id: 9979
+	OWPos: 9,1
+	Size: 2,2
+Desc: One of the lakes that is symbolic of the water-rich Sinnoh Region. There is an odd legend associated with it. It is possible to enter the cave underneath the lake from the island in the middle.
+####################
+Name: Snowpoint City
+Id: 9978
+	Icon: 2
+	OWPos: 11,1
+	Size: 1,2
+Desc: A winter wonderland of a city where stout trees and buildings are blanketed in thick snow. The Gym is at the heart of the city. To the north is the Snowpoint Temple.
+####################
+Name: Route 218
+Id: 9977
+	OWPos: 1,19
+Desc: Despite its shortness, this road is revered by fishing enthusiasts as a great, yet little known, fishing spot.
+####################
+Name: Canalave City
+Id: 9976
+	Icon: 2
+	OWPos: 1,17
+	Size: 1,2
+Desc: A port city that is bisected by a canal. It has a distinctly exotic air of foreign culture. Head to the library if you want a workout for the mind. Head to the Gym if you just want to work out. Large ships can always be seen moored at the town's piers.
+####################
+Name: Mt. Coronet
+Id: 9975
+	OWPos: 11,15
+	Size: 1,3
+Id: 9974
+	OWPos: 12,7
+	Size: 1,8
+Desc: A sacred mountain that is capped the year round with snow. A gigantic maze sprawls inside it. There is an ancient ruin named the Spear Pillar located here.
+####################
+Name: Spear Pillar
+Id: 9973
+	OWPos: 11,14
+####################
+Name: Route 222
+Id: 9972
+	OWPos: 23,19
+	Size: 3,1
+Desc: A sandy beach extends from the road. The beach is busy with avid Fishermen happily casting at the water's edge. A man who loves fishing lives near here. There is also a man who will compare sizes of caught fish.
+####################
+Name: Sunyshore City
+Id: 9971
+	Icon: 3
+	OWPos: 26,18
+	Size: 2,2
+Desc: A port city that was built around the bay portion of the cape. It is criss-crossed by elevated walkways. The Gym is located atop a rocky outcropping. Down on the beach is a festive bazaar. The Vista Lighthouse's bright beacon illuminates the Sinnoh region.
+####################
+Name: Route 223
+Id: 9970
+	OWPos: 26,14
+	Size: 1,4
+Desc: A marine route that requires travelers to navigate around jutting rocks and sandbars.
+####################
+Name: Victory Road
+Id: 9969
+	Icon: 11
+	OWPos: 26,13
+Desc: Trainers seeking to be the best arrive here after a long and grueling journey. Victory Road is the last and toughest of the challenges leading up to the Pokémon League. The Pokémon League reception counter is located here. Only those who have beaten all the Gyms may enter.
+####################
+Name: Pokemon League
+Id: 9968
+	Icon: 0
+	OWPos: 26,12
+Desc: Trainers seeking to be the best arrive here after a long and grueling journey. Victory Road is the last and toughest of the challenges leading up to the Pokémon League. The Pokémon League reception counter is located here. Only those who have beaten all the Gyms may enter.
+####################
+Name: Route 224
+Id: 9967
+	OWPos: 27,11
+	Size: 1,2
+Id: 9966
+	OWPos: 28,10
+	Size: 1,2
+Desc: With grass fields, rocky outcroppings, the sea, and sandbars, this area is like a miniature of the Sinnoh Region.
+####################
+Name: Seabreak Path
+Id: 99660
+	OWPos: 28,2
+	Size: 1,8
+Desc: A straight path bounded by the sea on both sides. It leads to the Flower Paradise.
+####################
+Name: Floral Paradise
+Id: 9965
+	OWPos: 28,1
+Desc: A speck of an island far from any civilization. It is covered in an abundance of flowers.
+####################
+Name: Sendoff Spring
+Id: 9964
+	OWPos: 23,15
+	Size: 2,2
+Desc: The fourth lake of Sinnoh that was kept secret. Beneath the lake's surface is a cave where dimensions are distorted.
+####################
+Name: Newmoon Island
+Id: 9963
+	OWPos: 4,3
+Desc: A small, round pond that lies inside a closed-off forest.
+####################
+Name: Fullmoon Island
+Id: 9962
+	OWPos: 1,3
+Desc: A small, crescent-shaped pond that lies inside a closed-off forest.
+####################
+Name: Iron Island
+Id: 9961
+	OWPos: 3,10
+Desc: A small, ore-rich island that is off the coast of Eterna City. Inside the island are remnants of an iron ore mining operation from the past.
+####################
+Name: Fight Area
+Id: 9960
+	Icon: 1
+	OWPos: 19,8
+	Size: 2,1
+Desc: A tiny port city where Trainers who love battling more than eating gather. The gateway to the Battle Frontier is located here. Moored at the pier is the ferry to Snowpoint City.
+####################
+Name: Battle Frontier
+Id: 9959
+	OWPos: 20,7
+Desc: The Battle Frontier--where the best of the best Trainers gather to test their skills--is located here.
+####################
+Name: Route 225
+Id: 9958
+	OWPos: 19,5
+	Size: 1,3
+Desc: The path makes its way up and down among rocky outcroppings. It is physically challenging.
+####################
+Name: Survival Area
+Id: 9957
+	Icon: 0
+	OWPos: 20,5
+Desc: A town where hot-blooded Trainers gather to work out and hone their battling skills.
+####################
+Name: Route 226
+Id: 9956
+	OWPos: 21,5
+	Size: 3,1
+Desc: A path that winds precariously along sheer cliffs that go right to the edge of the sea's pounding waves. There is a small island in the bay. An odd man who speaks foreign languages lives there.
+####################
+Name: Route 227
+Id: 9955
+	OWPos: 23,3
+	Size: 1,2
+Desc: A rugged and steep mountain path where vision is limited by steadily falling volcanic ash.
+####################
+Name: Stark Mountain
+Id: 9954
+	OWPos: 23,2
+Desc: A rugged, seemingly indestructible rock mountain that is thickly blanketed by the volcanic ash it spews. Inside the mountain, fissures in spilled and hardened lava form enormous caverns.
+####################
+Name: Route 228
+Id: 9953
+	OWPos: 24,5
+	Size: 1,3
+Desc: This rough path is harshly raked by a horizontally blowing sandstorm driven by strong winds off the sea.
+####################
+Name: Route 229
+Id: 9952
+	OWPos: 25,8
+Desc: A seaside path that makes its way through wildly growing trees and plants.
+####################
+Name: Resort Area
+Id: 9951
+	OWPos: 25,9
+Desc: A town that attracts Trainers who know there are other ways of enjoying Pokémon than battling.
+####################
+Name: Route 230
+Id: 9950
+	OWPos: 21,8
+	Size: 4,1
+Desc: A sea route that stretches from west to east. There is an island that is rich with plant life along the way.
+####################
+Name: Route 220
+Id: 9949
+	OWPos: 6,21
+	Size: 2,1
+Desc: The sea here is perfect for swimming, with gentle winds and tides. There are sandbars for resting too.
+####################
+Name: Route 221
+Id: 9948
+	OWPos: 8,21
+Desc: A straight path hemmed by green grass and sparse stands of trees. At the end of the path stands the gateway to _HIDDEN NAME_.

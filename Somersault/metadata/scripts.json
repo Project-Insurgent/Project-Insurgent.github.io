@@ -1,7 +1,7 @@
 [
 	{
 		"ID": "SUSc",
-		"version": "v5.2.4",
+		"version": "v5.2.5",
 		"name": "Somersault Utilities Scripts",
 		"subtitle": "Looking kinda SUS",
 		"desc": "This kit comes with quite a bunch of useful methods to use in your own fangames and is mandatory for the rest of my plugins to work.",
