@@ -1,7 +1,7 @@
 [
 	{
 		"ID": "SUSc",
-		"version": "v5.2.5",
+		"version": "v5.3.0",
 		"name": "Somersault Utilities Scripts",
 		"subtitle": "Looking kinda SUS",
 		"desc": "This kit comes with quite a bunch of useful methods to use in your own fangames and is mandatory for the rest of my plugins to work.",
@@ -9,7 +9,7 @@
 	},
 	{
 		"ID": "DPPT_Map",
-		"version": "v2.4.4",
+		"version": "v2.4.5",
 		"name": "Sinnoh Map Script",
 		"icon": "LucasDawn.gif",
 		"subtitle": "Created by and for true sinnoh lovers.",
@@ -33,7 +33,7 @@
 	},
 	{
 		"ID": "DPPT_TV",
-		"version": "v2.2",
+		"version": "v2.3",
 		"name": "DPPT TV Plugin",
 		"icon": "TV.gif",
 		"subtitle": "Don't miss the latest news on your own Sinnoh-styled TV!",
