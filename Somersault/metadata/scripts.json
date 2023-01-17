@@ -33,7 +33,7 @@
 	},
 	{
 		"ID": "DPPT_TV",
-		"version": "v2.3",
+		"version": "v2.3.0",
 		"name": "DPPT TV Plugin",
 		"icon": "TV.gif",
 		"subtitle": "Don't miss the latest news on your own Sinnoh-styled TV!",
