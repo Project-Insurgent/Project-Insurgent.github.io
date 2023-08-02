@@ -1,0 +1,175 @@
+.navbar{
+	background-color: #000 !important;
+}
+
+.page-title{
+	color: #fff;
+	font-size: 15pt;
+	font-weight: 500;
+}
+
+.nav-bar{
+	color: rgba(255,255,255,0.8700000048) !important;
+}
+
+.nav-bar.active{
+	color: #fff !important;
+	font-weight: 500;
+}
+
+.main-banner{
+	background-image: url('../src/banner.jpg');
+	height: 300px;
+	color: #000;
+	top: 56px;
+	position: relative;
+}
+
+.video-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-size: contain;
+    max-height: 100% !important;
+}
+
+.video-container video {
+    width: 50%;
+    height: 300px;
+}
+
+.banner-subtitle{
+	font-family: Merriweather, Arial;
+	font-size: 14pt;
+	font-variant: normal;
+	font-weight: 700;
+	vertical-align: baseline;
+}
+
+.MHV-separator{
+	font-family: 'Comforter Brush', Arial;
+	font-variant: normal;
+	font-weight: 400;
+	font-size: 18pt;
+	vertical-align: baseline;
+	padding: 20px;
+}
+
+.desc-paragraph{
+	text-align: justify;
+	font-family: Merriweather, Arial;
+	font-weight: 700;
+}
+
+.fig{
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 200px;
+	margin-top: 10% !important;
+	margin-bottom: 10%;
+}
+
+.fig-0{
+	background-image: url('../src/fig0.jpg');
+}
+
+.fig-1-0{
+	background-image: url('../src/Canva-Emblema.jpg');
+}
+
+.fig-1-1{
+	background-image: url('../src/Equis.png');
+}
+
+.fig-2{
+	background-image: url('../src/relojes.jpg');
+}
+
+.fig-3{
+	background-image: url('../src/Interrogacion.png');
+}
+
+.fig-4{
+	background-image: url('../src/az.png');
+}
+
+.fig-5{
+	background-image: url('../src/netiquette.png');
+}
+
+.fig-6{
+	background-image: url('../src/clase.png');
+}
+
+.fig-7{
+	background-image: url('../src/evidencia1.png');
+}
+
+.fig-8{
+	background-image: url('../src/evidencia2.png');
+}
+
+.fig-9{
+	background-image: url('../src/evidencia3.png');
+}
+
+.fig-10{
+	background-image: url('../src/evidencia4.png');
+}
+
+.main-link{
+	color: rgba(71,92,102,1);
+	font-family: 'PT Sans', sans-serif;
+    font-size: 15pt;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 16px;
+    cursor: pointer;
+}
+
+.main-link:hover{
+	color: rgba(71,92,102,1);
+}
+
+.fig-desc{
+	margin-top: 16px !important;
+	margin-bottom: 16px !important;
+	font-family: 'PT Sans', sans-serif;
+}
+
+.password-container{
+	position: absolute;
+	left: 33.33%;
+	top: 33.33%;
+	border: 1px solid #fafafa;
+	border-radius: 8px;
+	width: 33.33%;
+	background-color: #eeeeee;
+	padding: 20px;
+}
+
+#pwd{
+	width: 100%;
+}
+
+#header-row{
+	z-index: 9999;
+}
+
+.fixed{
+	position: fixed;
+	width: 101%;
+}
+
+.access-container{
+	background-color:black;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	max-width: unset !important;
+}
