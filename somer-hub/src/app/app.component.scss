@@ -1,0 +1,67 @@
+$themeColor: rgba(208,175,83,1.00);
+$themeMidColor: rgb(140, 117, 55);
+$themeDarkColor: rgba(81,56,14,1.00);
+
+.header-tab-group{
+    width: 75% !important;
+    margin: auto;
+}
+
+.header-toolbar{
+    background-color: $themeMidColor !important;
+}
+
+.app-title{
+    margin: auto;
+}
+
+.headerLogo{
+    width: 50px;
+}
+
+.mainBtnIcon {
+	width: 45px;
+	transition: all 0.1s linear;
+    position: relative;
+    top: -2px !important;
+}
+
+mat-tab{
+    width: 33.33%;
+}
+
+.mainButton {
+	font-size:150% !important;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif !important;
+	font-weight: bold !important;
+ 	justify-content : center !important;
+	position:relative !important;
+	transition: all 0.1s ease-in-out !important;
+}
+
+.mat-mdc-tab .mdc-tab-indicator__content--underline {
+    border-width: 0px !important;
+    border-radius: 34px !important;
+    height: 4px;
+    background-color: $themeColor;
+}
+
+.mdc-tab--active, .mdc-tab-indicator--active{
+    color: #646464 !important;
+}
+
+.mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
+--mdc-tab-indicator-active-indicator-color: #646464 !important; 
+    --mat-tab-header-disabled-ripple-color: rgba(0, 0, 0, 0.38);
+    --mat-tab-header-pagination-icon-color: #000;
+    --mat-tab-header-inactive-label-text-color: rgba(0, 0, 0, 0.6);
+    --mat-tab-header-active-label-text-color: #646464 !important;
+    --mat-tab-header-active-ripple-color: #646464 !important;
+    --mat-tab-header-inactive-ripple-color: #646464 !important;
+    --mat-tab-header-inactive-focus-label-text-color: rgba(0, 0, 0, 0.6);
+    --mat-tab-header-inactive-hover-label-text-color: rgba(0, 0, 0, 0.6);
+    --mat-tab-header-active-focus-label-text-color: #646464 !important;
+    --mat-tab-header-active-hover-label-text-color: #646464 !important;
+    --mat-tab-header-active-focus-indicator-color: #646464 !important;
+    --mat-tab-header-active-hover-indicator-color: #646464 !important;
+}
