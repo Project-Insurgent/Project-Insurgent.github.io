@@ -1,7 +1,7 @@
-$themeColor: rgba(208,175,83,1.00);
-$themeMidColor: rgb(140, 117, 55);
-$themeDarkColor: rgba(81,56,14,1.00);
-
+$themeColor: #d0af53;
+$themeMidColor: #8c7537;
+$themeDarkColor: #51380e;
+$headerHeight: 44px;
 .header-tab-group{
     width: 75% !important;
     margin: auto;
@@ -9,18 +9,22 @@ $themeDarkColor: rgba(81,56,14,1.00);
 
 .header-toolbar{
     background-color: $themeMidColor !important;
+    height: $headerHeight;
+    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.3);
 }
 
 .app-title{
     margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .headerLogo{
-    width: 50px;
+    width: 40px;
 }
 
 .mainBtnIcon {
-	width: 45px;
+	width: 40px;
 	transition: all 0.1s linear;
     position: relative;
     top: -2px !important;
@@ -30,8 +34,12 @@ mat-tab{
     width: 33.33%;
 }
 
+.mat-toolbar-row, .mat-toolbar-single-row{
+    height: $headerHeight !important;
+}
+
 .mainButton {
-	font-size:150% !important;
+	font-size: 100% !important;
 	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif !important;
 	font-weight: bold !important;
  	justify-content : center !important;

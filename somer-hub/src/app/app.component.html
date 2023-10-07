@@ -42,17 +42,13 @@
     </mat-toolbar>
 </div>
 <div class="row">
-  <!--  
-    @switch tabIndex {
-      @case 0 {
-        <app-scripts-tab></app-scripts-tab>   
-      }
-      @case 1 {
-        <app-sprites-tab></app-sprites-tab>   
-      }
-      @case 2 {
-        <app-fangames-tab></app-fangames-tab>     
-      }
-    }
-  -->
+  @if(tabIndex == 0){
+    <app-scripts-tab></app-scripts-tab>   
+  }
+  @else if(tabIndex == 1){
+    <app-sprites-tab></app-sprites-tab>
+  }
+  @else if(tabIndex == 2){
+    <app-fangames-tab></app-fangames-tab>  
+  }
 </div>

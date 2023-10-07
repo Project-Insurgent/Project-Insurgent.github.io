@@ -2,6 +2,9 @@ import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MaterialModule } from "./Material.module";
+import { ScriptsTabComponent } from './components/scripts/scripts-tab/scripts-tab.component';
+import { SpritesTabComponent } from './components/sprites/sprites-tab/sprites-tab.component';
+import { FangamesTabComponent } from './components/fangames/fangames-tab/fangames-tab.component';
 //import { BrowserModule } from "@angular/platform-browser";
 
 @Component({
@@ -10,7 +13,10 @@ import { MaterialModule } from "./Material.module";
   imports: [
     CommonModule,
     RouterOutlet,
-    MaterialModule
+    MaterialModule,
+    ScriptsTabComponent,
+    SpritesTabComponent,
+    FangamesTabComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
