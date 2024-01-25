@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import fangames from '../assets/metadata/fangames.json';
 
 @Component({
   selector: 'app-fangames-tab',

@@ -41,9 +41,18 @@
     }
     </mat-toolbar>
 </div>
+<div class="row d-flex justify-content-center">
+  <div class="col-6 info-bar search-bar d-flex justify-content-center">
+    <input class="search-field" type="text" placeholder="Search your favorite Resource" (input)="onInputChange()" #searchBar>
+    <button class="search-button" (click)="onClickFilters()">FILTERS</button>
+  </div>
+</div>
+<div class="row d-flex justify-content-center">
+  <div class="col-2 info-bar social-bar"></div>
+</div>
 <div class="row">
   @if(tabIndex == 0){
-    <app-scripts-tab></app-scripts-tab>   
+    <app-scripts-tab [filteredList]="filteredList" (scripts)="setResourceList($event)"></app-scripts-tab>   
   }
   @else if(tabIndex == 1){
     <app-sprites-tab></app-sprites-tab>

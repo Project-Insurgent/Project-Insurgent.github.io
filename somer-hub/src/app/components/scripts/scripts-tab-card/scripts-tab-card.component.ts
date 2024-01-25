@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Resource } from '../../../Utils/Resource';
 
 @Component({
   selector: 'app-scripts-tab-card',
@@ -9,5 +10,5 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./scripts-tab-card.component.scss']
 })
 export class ScriptsTabCardComponent {
-
+  @Input() rsc: Resource | undefined;
 }

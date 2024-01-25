@@ -1,7 +1,9 @@
 $themeColor: #d0af53;
 $themeMidColor: #8c7537;
+$themeMidDarkColor: #423720;
 $themeDarkColor: #51380e;
 $headerHeight: 44px;
+
 .header-tab-group{
     width: 75% !important;
     margin: auto;
@@ -28,6 +30,45 @@ $headerHeight: 44px;
 	transition: all 0.1s linear;
     position: relative;
     top: -2px !important;
+}
+
+.info-bar{
+    background-color: #00000080;
+    margin-top: 22px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+}
+
+.search-bar{
+    height: 55px;
+    padding: 12px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.search-field{
+    width: 100%;
+    margin-right: 15px;
+    border-radius: 5px;
+    border-style: none;
+    padding-left: 5px;
+}
+
+.search-button{
+    width: 90px;
+    border-radius: 5px;
+    background-color: $themeColor;
+    border-style: none;
+    color: $themeDarkColor;
+
+    &:hover{
+        background-color: $themeMidColor;
+        color: white;
+    }
+}
+
+.social-bar{
+    height: 40px;
 }
 
 mat-tab{

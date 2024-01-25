@@ -1,0 +1,60 @@
+[
+	{
+		"ID": "SUSc",
+		"version": "v5.3.1",
+		"title": "Somersault Utilities Scripts",
+		"subtitle": "Looking kinda SUS",
+		"desc": "This kit comes with quite a bunch of useful methods to use in your own fangames and is mandatory for the rest of my plugins to work.",
+		"longDesc": "This set of scripts are the “brain” of all my other plugins, and hence they all use this kit as the main source of methods and classes. But that does not mean that you cannot use it as a standalone plugin as well. Just the opposite! This kit comes with quite a bunch of useful methods and utilities that you may want to use in your own fangames. So definitely you need to check them out!"
+	},
+	{
+		"ID": "DPPT_Map",
+		"version": "v2.4.5",
+		"name": "Sinnoh Map Script",
+		"icon": "LucasDawn.gif",
+		"subtitle": "Created by and for true sinnoh lovers.",
+		"desc": "This plugin implements a nostalgic region map with the style of the classic Diamond and Pearl games. It includes multiscreen options!",
+		"longDesc": "This script will implement for you a fancy gen-4-styled region map, with which you will be able to check not only your current position in game, but also all the places you have already visited. Moreover, you can open a 'Detail View' to read the different descriptions and further information about all the places. But how does it look like? Check the images below!",
+		"instr": ["Next, go inside the folder <strong>“Pictures/Somerscripts/DPPTMap/”</strong> and rename the file “SinnohMap.png” with the name of your actual region."],
+		"notes": ["If you don’t know the name of the region, go to <strong>townmap.txt</strong> and look for <strong>“Filename=[the_name_you_are_looking_for]”</strong>."],
+		"img": ["topBg","btmBg","btmBgDetail"],
+		"deps": ["Somersault Utilities Scripts"]
+	},
+	{
+		"ID": "Chapters",
+		"version": "v3.1.1",
+		"name": "Chapters System",
+		"icon": "icon.png",
+		"subtitle": "Highly recommended in case your game plot is stunning and deserves visuals to make it stand out.",
+		"desc": "This is a small plugin with which you can show a simple system of Chapter signposts. Simple, but effective!",
+		"longDesc": "This is a small plugin with which you can show a simple system of Chapter signposts. Simple, but effective! With this plugin you can make the difference when it comes to making the game plot stand out.",
+		"img": ["Chapter0","Chapter1","Chapter3"],
+		"deps": ["Somersault Utilities Scripts"]
+	},
+	{
+		"ID": "DPPT_TV",
+		"version": "v2.3.0",
+		"name": "DPPT TV Plugin",
+		"icon": "TV.gif",
+		"subtitle": "Don't miss the latest news on your own Sinnoh-styled TV!",
+		"desc": "This script implements a fancy cutscene recreating the original DPPT TV system.",
+		"longDesc": "This script implements a fancy cutscene recreating the original DPPT TV system. You can customise everything! From the background to the texts, including the display time!",
+		"img": ["gym","league","UW"],
+		"deps": ["Somersault Utilities Script"]
+	},
+	{
+		"ID": "DPPT_GdSel",
+		"version": "v3.1.2",
+		"name": "DPPT Gender Selector",
+		"icon": "icon.png",
+		"subtitle": "Created by and for true sinnoh lovers.",
+		"desc": "Get your game to another level with this gender selector inspired in the gen. 4 games",
+		"longDesc": "This script implements a nostalgic gender selection into your game, recreating the original gender selection scene from the original gen. 4 games!",
+		"deps": ["Somersault Utilities Script"],
+		"notes": [
+			"You must know that the script doesn't provide a background.",
+			"You can either make an animated or non-animated selector: you only have to make each graphic to contain all its corresponding animation frames in horizontal.",
+			"Take in mind that after calling this script the player will lose all the items, Pokémon and pokédex, if they previously had any. Aka: a reset. So make sure you call it at the very start of your game."
+		]
+	}
+]

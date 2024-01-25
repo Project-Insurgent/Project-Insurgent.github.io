@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import sprites from '../assets/metadata/sprites.json';
 
 @Component({
   selector: 'app-sprites-tab',
